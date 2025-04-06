@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>About</h1>
+
+    <div class="about-container">
+        <div class="about-content">
+            <h2>Kurs: Objektorienterade webbteknologier (MVC)</h2>
+            <p>
+                Kursen Objektorienterade webbteknologier, a.k.a. mvc, fokuserar på objektorienterade programmeringstekniker i programmeringsspråket PHP. 
+                Klassiska objektorienterade konstruktioner hanteras tillsammans med objektorienterad programmering i webbaserat ramverk, tillsammans med databaser och enhetstestning.
+            </p>
+            <p>
+                För mer information om kursen, besök kursens Git-repo:
+                <a href="https://github.com/dbwebb-se/mvc" target="_blank">Kursens Git-repo</a>.
+            </p>
+            <p>
+                Du kan också kolla på mitt eget GitHub-repo:
+                <a href="https://github.com/joelberhanee" target="_blank">Mitt GitHub-repo</a>.
+            </p>
+        </div>
+
+        <div class="about-image-container">
+            <a href="{{ asset('img/databas.jpg') }}">
+                <img src="{{ asset('img/databas.jpg') }}" alt="Databasbild" class="about-image">
+            </a>
+        </div>
+    </div>
+{% endblock %}

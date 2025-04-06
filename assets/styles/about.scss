@@ -1,0 +1,43 @@
+.about-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 60%;
+    padding-right: 20px;
+
+    p {
+        line-height: 1.6;
+        color: $text-color;
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: $primary-color;
+        margin-bottom: 15px;
+    }
+}
+
+.about-image-container {
+    flex: 1;
+    max-width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: $shadow-light;
+    display: block;
+    margin: 20px auto;
+    max-height: 300px;
+    object-fit: cover;
+}

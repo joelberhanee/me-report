@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API Sammanställning{% endblock %}
+
+{% block body %}
+    <h1>JSON API</h1>
+    <p>Sammanställning av alla JSON routes i min webbplats:</p>
+
+    <ul>
+        <li>
+            <strong><a href="{{ path('api_quote') }}">/api/quote</a></strong><br>
+        </li>
+        <li>
+            <strong><a href="{{ path('app_luckycontrollerjson_jsonnumber') }}">/api/lucky/number</a></strong><br>
+        </li>
+    </ul>
+{% endblock %}
