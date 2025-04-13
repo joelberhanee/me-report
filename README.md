@@ -27,4 +27,4 @@ För att komma igång med projektet, följ dessa steg:
 6. Alternativ B – Inbyggd PHP-server: 
 - php -S localhost:8000 -t public
 
-7. https://127.0.0.1:8000/home
+7. https://127.0.0.1:8000/

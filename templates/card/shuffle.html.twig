@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blandad kortlek{% endblock %}
+
+{% block body %}
+    <h1>Kortlek - Blandad</h1>
+
+    <form method="post" action="{{ path('card_shuffle_post') }}">
+        <button type="submit" class="btn btn-primary">Blanda kortleken</button>
+    </form>
+
+    {% if cards is defined %}
+        <p>Korten har blandats. Totalt {{ cards|length }} kort:</p>
+        <div class="card-deck">
+            {% for card in cards %}
+                {% set suit = card.getSuit() %}
+                <div class="card {{ suit }}">
+                    {{ card }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <ul>
+        <li><a href="{{ path('card_draw') }}">Dra ett kort</a></li>
+        <li><a href="{{ path('card_draw_number', {'number': 5}) }}">Dra 5 kort</a></li>
+        <li><a href="{{ path('session_restart') }}" class="btn btn-danger">Starta om spelet</a></li>
+    </ul>
+
+    {{ include('flash.html.twig') }}
+{% endblock %}

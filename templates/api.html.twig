@@ -4,14 +4,44 @@
 
 {% block body %}
     <h1>JSON API</h1>
-    <p>Sammanställning av alla JSON routes i min webbplats:</p>
+    <p>Sammanställning av alla JSON routes som finns på min webbplats:</p>
 
     <ul>
         <li>
             <strong><a href="{{ path('api_quote') }}">/api/quote</a></strong><br>
+            Returnerar ett slumpmässigt citat med dagens datum och tidsstämpel.
         </li>
         <li>
             <strong><a href="{{ path('app_luckycontrollerjson_jsonnumber') }}">/api/lucky/number</a></strong><br>
+            Returnerar ett slumpmässigt nummer mellan 1 och 100.
+        </li>
+        <li>
+            <strong><a href="{{ path('api_deck') }}">/api/deck</a></strong><br>
+            Returnerar en JSON-struktur med hela kortleken sorterad per färg och värde.
+        </li>
+        <li>
+            <strong><a href="{{ path('api_deck_shuffle') }}">/api/deck/shuffle</a></strong><br>
+            Blandar kortleken och returnerar en JSON-struktur med den blandade kortleken.
+
+            <form action="{{ path('api_deck_shuffle') }}" method="POST">
+                <button type="submit">Blanda kortleken</button>
+            </form>
+        </li>
+        <li>
+            <strong><a href="{{ path('api_deck_draw') }}">/api/deck/draw</a></strong><br>
+            Drar ett kort från kortleken och visar upp det i en JSON-struktur samt antalet kort kvar.
+
+            <form action="{{ path('api_deck_draw') }}" method="POST">
+                <button type="submit">Dra ett kort</button>
+            </form>
+        </li>
+        <li>
+            <strong><a href="{{ path('api_deck_draw_number', {'number': 5}) }}">/api/deck/draw/{number}</a></strong><br>
+            Drar ett specifikt antal kort från kortleken och visar upp dem i en JSON-struktur samt antalet kort kvar.
+
+            <form action="{{ path('api_deck_draw_number', {'number': 5}) }}" method="POST">
+                <button type="submit">Dra 5 kort</button>
+            </form>
         </li>
     </ul>
 {% endblock %}

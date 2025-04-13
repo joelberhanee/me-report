@@ -14,20 +14,18 @@ class LuckyControllerTwig extends AbstractController
         $number = random_int(0, 100);
         $luckyMessage = $this->getLuckyMessage($number);
 
-        // Lista med bilder
         $images = [
             'img/klover.jpg',
             'img/klovdjur-07.jpg',
             'img/lucky.jpg',
         ];
 
-        // Slumpmässig bild
         $randomImage = $images[array_rand($images)];
 
         $data = [
             'number' => $number,
             'message' => $luckyMessage,
-            'image' => $randomImage, // Skicka endast en slumpmässig bild
+            'image' => $randomImage,
         ];
 
         return $this->render('lucky_number.html.twig', $data);
