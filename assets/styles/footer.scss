@@ -3,10 +3,9 @@ footer {
     color: $link-color;
     padding: 20px;
     text-align: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
     box-shadow: $shadow-light;
+    margin-top: auto;
 }
 
 footer a {
