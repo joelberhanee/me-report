@@ -4,9 +4,6 @@ namespace App\Card;
 
 class DeckOfCards
 {
-    /**
-     * @var Card[]
-     */
     private array $cards = [];
 
     public function __construct(bool $useGraphics = false)
@@ -25,9 +22,6 @@ class DeckOfCards
         }
     }
 
-    /**
-     * Blandar kortleken.
-     */
     public function shuffle(): void
     {
         shuffle($this->cards);
