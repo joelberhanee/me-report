@@ -16,7 +16,7 @@ class CardGraphic extends Card
     public function __construct(string $value, string $suit)
     {
         parent::__construct($value, $suit);
-        $this->class = $this->determineClass($suit);  // Bestämmer klass (röd eller svart)
+        $this->class = $this->determineClass($suit);
     }
 
     private function determineClass(string $suit): string
@@ -32,11 +32,11 @@ class CardGraphic extends Card
     public function getGraphic(): string
     {
         $symbol = self::SUIT_SYMBOLS[$this->suit] ?? '?';
-        return "[{$this->value}{$symbol}]"; // Exempel: 2♥ eller K♠
+        return "[{$this->value}{$symbol}]";
     }
 
     public function __toString(): string
     {
-        return $this->getGraphic();  // Returnerar den grafiska representationen av kortet
+        return $this->getGraphic();
     }
 }

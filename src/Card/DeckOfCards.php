@@ -33,9 +33,6 @@ class DeckOfCards
         shuffle($this->cards);
     }
 
-    /**
-     * Sorterar kortleken tillbaka till originalordningen.
-     */
     public function sort(): void
     {
         usort($this->cards, function (Card $a, Card $b) {
@@ -52,23 +49,11 @@ class DeckOfCards
             return array_search($a->getSuit(), $suitOrder) <=> array_search($b->getSuit(), $suitOrder);
         });
     }
-
-    /**
-     * Returnerar hela kortleken.
-     *
-     * @return Card[]
-     */
     public function getCards(): array
     {
         return $this->cards;
     }
 
-    /**
-     * Drar ett eller flera kort.
-     *
-     * @param int $count
-     * @return Card[]
-     */
     public function draw(int $count = 1): array
     {
         $drawn = [];
@@ -82,10 +67,7 @@ class DeckOfCards
 
         return $drawn;
     }
-
-    /**
-     * Returnerar antal kvarvarande kort.
-     */
+    
     public function cardsLeft(): int
     {
         return count($this->cards);
