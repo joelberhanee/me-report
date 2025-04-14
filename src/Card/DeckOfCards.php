@@ -61,7 +61,7 @@ class DeckOfCards
 
         return $drawn;
     }
-    
+
     public function cardsLeft(): int
     {
         return count($this->cards);
