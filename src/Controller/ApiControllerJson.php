@@ -45,7 +45,7 @@ class ApiControllerJson extends AbstractController
             return [
                 'suit' => $card->getSuit(),
                 'value' => $card->getValue(),
-                'ascii' => method_exists($card, 'getAsString') ? $card->getAsString() : null
+                'ascii' => $card->getAsString()
             ];
         }, $cards);
 
@@ -69,7 +69,7 @@ class ApiControllerJson extends AbstractController
             return [
                 'suit' => $card->getSuit(),
                 'value' => $card->getValue(),
-                'ascii' => method_exists($card, 'getAsString') ? $card->getAsString() : null,
+                'ascii' => $card->getAsString(),
             ];
         }, $cards);
 
@@ -84,9 +84,13 @@ class ApiControllerJson extends AbstractController
     public function apiDraw(SessionInterface $session): JsonResponse
     {
         $deck = $session->get('deck');
+        if (!$deck instanceof DeckOfCards) {
+            return new JsonResponse(['message' => 'Kortleken har inte initierats korrekt.']);
+        }
+
         $hand = new CardHand();
 
-        if (!$deck || $deck->cardsLeft() === 0) {
+        if ($deck->cardsLeft() === 0) {
             return new JsonResponse([
                 'message' => 'Kortleken är slut! Starta om spelet.',
                 'cards_left' => 0,
@@ -106,7 +110,7 @@ class ApiControllerJson extends AbstractController
             return [
                 'suit' => $card->getSuit(),
                 'value' => $card->getValue(),
-                'ascii' => method_exists($card, 'getAsString') ? $card->getAsString() : null,
+                'ascii' => $card->getAsString(),
             ];
         }, $hand->getCards());
 
@@ -121,9 +125,13 @@ class ApiControllerJson extends AbstractController
     public function apiDrawNumber(SessionInterface $session, int $number): JsonResponse
     {
         $deck = $session->get('deck');
+        if (!$deck instanceof DeckOfCards) {
+            return new JsonResponse(['message' => 'Kortleken har inte initierats korrekt.']);
+        }
+
         $hand = new CardHand();
 
-        if (!$deck || $deck->cardsLeft() === 0) {
+        if ($deck->cardsLeft() === 0) {
             return new JsonResponse([
                 'message' => 'Kortleken är slut! Starta om spelet.',
                 'cards_left' => 0,
@@ -147,7 +155,7 @@ class ApiControllerJson extends AbstractController
             return [
                 'suit' => $card->getSuit(),
                 'value' => $card->getValue(),
-                'ascii' => method_exists($card, 'getAsString') ? $card->getAsString() : null,
+                'ascii' => $card->getAsString(),
             ];
         }, $hand->getCards());
 
@@ -156,5 +164,23 @@ class ApiControllerJson extends AbstractController
             'cards_left' => $deck->cardsLeft(),
             'cards' => $cardData,
         ]);
+    }
+
+    #[Route('/api/game', name: 'api_game', methods: ['GET'])]
+    public function gameStatus(SessionInterface $session): JsonResponse
+    {
+        $playerSum = $session->get('player_sum');
+        $bankSum = $session->get('bank_sum');
+        $status = $session->get('status');
+        $scoreboard = $session->get('scoreboard');
+
+        $response = [
+            'player_sum' => $playerSum,
+            'bank_sum' => $bankSum,
+            'status' => $status,
+            'scoreboard' => $scoreboard,
+        ];
+
+        return new JsonResponse($response);
     }
 }

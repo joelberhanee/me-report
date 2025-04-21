@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
@@ -62,7 +61,7 @@ class CardController extends AbstractController
         $deck = $session->get('deck');
         $hand = new CardHand();
 
-        if (!$deck || $deck->cardsLeft() === 0) {
+        if (!$deck instanceof DeckOfCards || $deck->cardsLeft() === 0) {
             $this->addFlash('warning', 'Kortleken är slut! Starta om spelet.');
             return $this->render('card/draw.html.twig', [
                 'cards' => $hand->getCards(),
@@ -90,12 +89,16 @@ class CardController extends AbstractController
         $deck = $session->get('deck');
         $hand = new CardHand();
 
-        if (!$deck || $deck->cardsLeft() === 0) {
+        if (!$deck instanceof DeckOfCards || $deck->cardsLeft() === 0) {
             $this->addFlash('warning', 'Kortleken är slut! Starta om spelet.');
             return $this->render('card/draw_number.html.twig', [
                 'cards' => $hand->getCards(),
                 'left' => 0
             ]);
+        }
+
+        if ($number > $deck->cardsLeft()) {
+            $number = $deck->cardsLeft();
         }
 
         $drawn = $deck->draw($number);

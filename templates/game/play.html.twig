@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spela 21 (Blackjack){% endblock %}
+
+{% block body %}
+<div class="twentyone-board">
+
+    <h1 class="twentyone-title">Spela 21</h1>
+
+    <div class="twentyone-section player-hand">
+        <h3>Din hand:</h3>
+        <div class="twentyone-cards card-deck">
+            {% for card in player %}
+                {% set suit = card.getSuit() %}
+                <div class="card {{ suit }}">
+                    {{ card }}
+                </div>
+            {% endfor %}
+        </div>
+        <p class="twentyone-sum">Summa: {{ player_sum }}</p>
+    </div>
+
+    {% if bank is not empty %}
+    <div class="twentyone-section bank-hand">
+        <h3>Bankens hand:</h3>
+        <div class="twentyone-cards card-deck">
+            {% for card in bank %}
+                {% set suit = card.getSuit() %}
+                <div class="card {{ suit }}">
+                    {{ card }}
+                </div>
+            {% endfor %}
+        </div>
+        {% if bank_sum is not null %}
+            <p class="twentyone-sum">Summa: {{ bank_sum }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if status == 'playing' %}
+        <div class="twentyone-controls">
+            <a href="{{ path('game_draw') }}" class="btn btn-green">Dra kort</a>
+            <a href="{{ path('game_stay') }}" class="btn btn-yellow">Stanna</a>
+        </div>
+    {% else %}
+        <div class="status-box">
+            <p>Status: {{ status | capitalize }}</p>
+            <a href="{{ path('game_reset') }}" class="btn btn-red">Spela igen</a>
+        </div>
+    {% endif %}
+
+    {{ include('flash.html.twig') }}
+</div>
+{% endblock %}

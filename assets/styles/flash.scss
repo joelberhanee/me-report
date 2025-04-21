@@ -3,6 +3,7 @@
     color: #004085;
     background-color: #cce5ff;
     border-color: #b8daff;
+    margin: 1.5em;
 }
 .flash-notice:before {
     content: "ⓘ";
@@ -13,7 +14,19 @@
     color: #856404;
     background-color: #fff3cd;
     border-color: #ffeeba;
+    margin: 1.5em;
 }
 .flash-warning:before {
     content: "⚠";
+}
+
+.flash-success {
+    padding: 0.5em;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    margin: 1.5em;
+}
+.flash-success:before {
+    content: "✔️";
 }

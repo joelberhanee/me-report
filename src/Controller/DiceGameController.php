@@ -41,7 +41,7 @@ class DiceGameController extends AbstractController
 
         $diceRoll = [];
         for ($i = 1; $i <= $num; $i++) {
-            // $die = new Dice();
+
             $die = new DiceGraphic();
             $die->roll();
             $diceRoll[] = $die->getAsString();
@@ -88,10 +88,8 @@ class DiceGameController extends AbstractController
     }
 
     #[Route("/game/pig/init", name: "pig_init_post", methods: ['POST'])]
-    public function initCallback(
-        Request $request,
-        SessionInterface $session
-    ): Response {
+    public function initCallback(Request $request, SessionInterface $session): Response
+    {
         $numDice = $request->request->get('num_dices');
 
         $hand = new DiceHand();
@@ -109,10 +107,14 @@ class DiceGameController extends AbstractController
     }
 
     #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
-    public function play(
-        SessionInterface $session
-    ): Response {
+    public function play(SessionInterface $session): Response
+    {
         $dicehand = $session->get("pig_dicehand");
+
+        if (!$dicehand instanceof DiceHand) {
+            $dicehand = new DiceHand();
+            $session->set("pig_dicehand", $dicehand);
+        }
 
         $data = [
             "pigDices" => $session->get("pig_dices"),
@@ -125,15 +127,22 @@ class DiceGameController extends AbstractController
     }
 
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
-    public function roll(
-        SessionInterface $session
-    ): Response {
+    public function roll(SessionInterface $session): Response
+    {
         $hand = $session->get("pig_dicehand");
+
+        if (!$hand instanceof DiceHand) {
+
+            $hand = new DiceHand();
+            $session->set("pig_dicehand", $hand);
+        }
+
         $hand->roll();
 
         $roundTotal = $session->get("pig_round");
         $round = 0;
         $values = $hand->getValues();
+
         foreach ($values as $value) {
             if ($value === 1) {
                 $this->addFlash(
@@ -153,9 +162,8 @@ class DiceGameController extends AbstractController
     }
 
     #[Route("/game/pig/save", name: "pig_save", methods: ['POST'])]
-    public function save(
-        SessionInterface $session
-    ): Response {
+    public function save(SessionInterface $session): Response
+    {
         $roundTotal = $session->get("pig_round");
         $gameTotal = $session->get("pig_total");
 

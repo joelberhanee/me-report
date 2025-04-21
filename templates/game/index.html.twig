@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blackjack{% endblock %}
+
+{% block body %}
+    <div class="game-welcome-container">
+        <h1 class="game-title">Välkommen till Blackjack</h1>
+
+        <p class="game-description">
+            Detta är en förenklad version av kortspelet Blackjack (21). Målet är att få en hand med en totalsumma så nära 21 som möjligt utan att gå över. Du spelar mot banken som drar sina kort efter att du har stannat. Den med högst summa, utan att överstiga 21, vinner.
+        </p>
+
+        <section class="game-rules">
+            <h2>Spelregler</h2>
+            <ul>
+                <li>Du börjar med 0 kort och drar ett i taget genom att klicka på "Dra kort".</li>
+                <li>Du kan välja att "Stanna" när du är nöjd med din poäng.</li>
+                <li>Om din summa överstiger 21, förlorar du direkt.</li>
+                <li>När du stannar, drar banken kort tills den når minst 17 poäng.</li>
+                <li>Om banken går över 21 vinner du.</li>
+                <li>Vid lika poäng vinner banken.</li>
+            </ul>
+        </section>
+
+        <a href="{{ path('game_start') }}" class="btn btn-start">Starta spelet</a>
+
+        {{ include('flash.html.twig') }}
+    </div>
+{% endblock %}

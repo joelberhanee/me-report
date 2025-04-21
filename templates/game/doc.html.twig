@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spelets Dokumentation{% endblock %}
+
+{% block body %}
+    <h1>Spelets Dokumentation</h1>
+    <h2>Flödesschema</h2>
+    <img src="{{ asset('images/flowchart.png') }}" alt="Flödesschema">
+    
+    <h2>Pseudokod</h2>
+    <pre>
+        1. Starta spelet
+        2. Dela ut två kort till spelaren och banken
+        3. Spelaren drar kort eller stannar
+        4. Banken drar kort tills summan är minst 17
+        5. Jämför spelarens och bankens poäng
+        6. Bestäm vinnaren
+    </pre>
+    
+    <h2>Klasser</h2>
+    <ul>
+        <li><strong>Card</strong>: Representerar ett enskilt spelkort med färg och värde.</li>
+        <li><strong>CardGraphic</strong>: Visar kortet visuellt med Unicode-symbol.</li>
+        <li><strong>CardHand</strong>: Håller reda på en hand av kort (spelare eller bank).</li>
+        <li><strong>DeckOfCards</strong>: Håller alla kort i kortleken och hanterar kortdragning och blandning.</li>
+        <li><strong>GameTwentyOne</strong>: Hanterar spelreglerna och spelstatus.</li>
+    </ul>
+    
+    <h2>UML Klassdiagram</h2>
+    <img src="{{ asset('images/uml_diagram.png') }}" alt="UML Klassdiagram">
+{% endblock %}

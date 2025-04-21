@@ -4,12 +4,15 @@ namespace App\Card;
 
 class CardHand
 {
+    /** @var Card[] */
     private array $cards = [];
+
     public function addCard(Card $card): void
     {
         $this->cards[] = $card;
     }
 
+    /** @return Card[] */
     public function getCards(): array
     {
         return $this->cards;
@@ -27,5 +30,30 @@ class CardHand
             $output .= $card . " ";
         }
         return trim($output);
+    }
+
+    public function getSum(): int
+    {
+        $sum = 0;
+        $numAces = 0;
+
+        foreach ($this->cards as $card) {
+            $value = $card->getValue();
+
+            if (is_numeric($value)) {
+                $sum += (int)$value;
+            } elseif (in_array($value, ['J', 'Q', 'K'])) {
+                $sum += 10;
+            } elseif ($value === 'A') {
+                $numAces++;
+                $sum += 1;
+            }
+        }
+
+        if ($numAces > 0 && $sum + 13 <= 21) {
+            $sum += 13;
+        }
+
+        return $sum;
     }
 }

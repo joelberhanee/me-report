@@ -15,9 +15,9 @@ class LuckyControllerTwig extends AbstractController
         $luckyMessage = $this->getLuckyMessage($number);
 
         $images = [
-            'images/klover.jpg',
-            'images/klovdjur-07.jpg',
-            'images/lucky.jpg',
+            'build/images/klover.jpg',
+            'build/images/klovdjur-07.jpg',
+            'build/images/lucky.jpg',
         ];
 
         $randomImage = $images[array_rand($images)];
@@ -31,7 +31,7 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('lucky_number.html.twig', $data);
     }
 
-    private function getLuckyMessage($number): string
+    private function getLuckyMessage(int $number): string
     {
         if ($number < 20) {
             return 'Stora saker väntar på dig.';
