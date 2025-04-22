@@ -5,27 +5,43 @@
 {% block body %}
     <h1>Spelets Dokumentation</h1>
     <h2>Flödesschema</h2>
-    <img src="{{ asset('images/flowchart.png') }}" alt="Flödesschema">
     
     <h2>Pseudokod</h2>
     <pre>
-        1. Starta spelet
-        2. Dela ut två kort till spelaren och banken
-        3. Spelaren drar kort eller stannar
-        4. Banken drar kort tills summan är minst 17
-        5. Jämför spelarens och bankens poäng
-        6. Bestäm vinnaren
+        STARTA SPELET
+            Dela ut kort till spelaren tills spelaren stannar
+
+        Players tur:
+            Visa spelarens kort och poäng
+            While spelaren inte stannar:
+                If spelarens val == "Dra":
+                    Dra kort från deckOfCards, lägg till i CardHand, uppdatera poäng
+                    Visa uppdaterade kort och poäng
+                    If poäng > 21: Spelaren förlorar, sluta spelet
+                Else If spelarens val == "stanna": Gå vidare till bankens tur
+
+        Bankens tur:
+            If spelarens poäng <= 21:
+                Banken drar kort tills poäng >= 17
+                Visa bankens kort och poäng
+                If bankens poäng > 21: Spelaren vinner
+
+        Bestäm resultat:
+            If spelarens poäng > bankens poäng: Spelaren vinner
+            Else If bankens poäng > spelarens poäng: Banken vinner
+            Else: Oavgjort == banken vinner
+
+        Återställ spelet:
+            Återställ kort och poäng, börja om
     </pre>
     
     <h2>Klasser</h2>
     <ul>
-        <li><strong>Card</strong>: Representerar ett enskilt spelkort med färg och värde.</li>
-        <li><strong>CardGraphic</strong>: Visar kortet visuellt med Unicode-symbol.</li>
-        <li><strong>CardHand</strong>: Håller reda på en hand av kort (spelare eller bank).</li>
-        <li><strong>DeckOfCards</strong>: Håller alla kort i kortleken och hanterar kortdragning och blandning.</li>
-        <li><strong>GameTwentyOne</strong>: Hanterar spelreglerna och spelstatus.</li>
+        <li><strong>Card</strong>: Ett kort, och dess värde.</li>
+        <li><strong>CardGraphic</strong>: Ärver från Card, snyggar till utseendet av kortet. Med färg och symboler.</li>
+        <li><strong>CardHand</strong>: Spelarens/bankens hand med kort. Klassen håller koll på de korten som dras.</li>
+        <li><strong>DeckOfCards</strong>: Hela kortleken. Klass som skapar kortleken, blandar den och delas ut</li>
+        <li><strong>GameTwentyOne</strong>: Hanterar spelreglerna och spelstatus för mitt spel Blackjack/21.</li>
     </ul>
     
-    <h2>UML Klassdiagram</h2>
-    <img src="{{ asset('images/uml_diagram.png') }}" alt="UML Klassdiagram">
 {% endblock %}
