@@ -78,7 +78,11 @@
 
     "name": "jobx24/noname",
     "description": "No description",
-    "scripts": {        
+    "scripts": {    
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+   
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+
         "csfix": "PHP_CS_FIXER_IGNORE_ENV=true tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/.php-cs-fixer.dist.php fix src tests",
         "csfix:dry": "PHP_CS_FIXER_IGNORE_ENV=true tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/.php-cs-fixer.dist.php fix src tests --dry-run -v",
 

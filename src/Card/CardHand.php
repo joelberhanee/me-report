@@ -50,8 +50,10 @@ class CardHand
             }
         }
 
-        if ($numAces > 0 && $sum + 13 <= 21) {
-            $sum += 13;
+        for ($i = 0; $i < $numAces; $i++) {
+            if ($sum + 10 <= 21) {
+                $sum += 10;
+            }
         }
 
         return $sum;

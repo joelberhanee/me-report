@@ -27,4 +27,9 @@ class Card
     {
         return "{$this->value} of {$this->suit}";
     }
+
+    public function __toString(): string
+    {
+        return $this->value . ' of ' . $this->suit;
+    }
 }
