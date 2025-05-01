@@ -86,7 +86,24 @@
 
     <div id="kmom04">
         <h2>Kmom04</h2>
-        <p>Redovisningstext för kmom04.</p>
+        <p>
+            Jag tycker att det var ganska kul att få jobba med PHPUNIT till en början så trodde jag att det skulle vara jätte krångligt och svårt men efter att ha läst igenom en del samt lyssnat på föreläsningarna och även gått igenom övningarna med YouTube föreläsningarna så började jag känna att det faktiskt inte är alltför komplicerat. Saker börja klicka och jag började förstå hela konceptet med att testa och varför man gör det. Något jag hade problem med var att få upp docs/coverage på lokala sidan men inte studentservern, det lyckades jag inte med.
+        </p>
+        <p>
+            Mitt mål var att få 100 på alla tester och jag kan nu vara stolt och säga att jag lyckades med det slutligen. Det tog sin tid och länge så strulade jag med min CardHandTest.php kod där jag inte lyckades få ordning på alla tester och hade länge ca 70–75 % kodtäckning. Problemet låg i att testa essets värde när det förändras vid dragning av nytt kort och att värdet ska förvandlas till ett och inte överstiga 21… den var krånglig. Men jag lyckades lösa det med att testa siffror där lösningen blir utsatt för att överstiga om inte förvandlingen av esset görs, även där fick jag korrigera lite med klassen för det. Det är väl det som är huvudsaken med enhetstestning så, en del lärdom.
+        </p>
+        <p>
+            När det gäller vad jag upplever kring hur testbar min kod är så blir det faktiskt ganska svårt för mig att svara på det. Om jag ska kolla på kodtäckningen så lyckades jag få alla tester till 100 % och därför vill jag tro att min kod är testbar och ganska bra men sen får man inte glömma att jag inte har jätte stora erfarenheter inom detta så jag kanske inte sitter på tillräckligt med kunskap för att svara på det. Men min upplevelse säger att min kod är testbar.
+        </p>
+        <p>
+            Jag fick faktiskt gå in och göra lite justeringar på min kod för att få en testerna att funka rätt och för att göra den mer testbar helt enkelt. Det blev inte alltför stora ändringar, men jag fick gå in och korrigera lite i mina klasser efter att ha fått varningar på dem… främst med getAsString och __toString. Denna del tyckte jag var den krångligaste delen. Jag hade min Composer lint som bråkade med min PHPunit. När jag fick rätt med den ena fanns det error på den andra. Men till slut löste jag det med att lägga till en ganska identisk kod fast i annat namn. Lösningen kanske inte är super korrekt men det fick vara så för denna gång.
+        </p>
+        <p>
+            I föreläsningarna berätta man om att det kan vara en fördel att skriva testkoderna innan den vanliga koden. Så jag tror absolut att en testbar kod kan vara till hjälp men jag tror inte det identifierar en snygg och ren kod.
+        </p>
+        <p>
+            Min TIL i detta kursmoment är självklart allt med att enhetstesta men om jag får gå in lite djupare i det så är det att jag lärde mig att man kan använda use och ärva även i testerna istället för att exempelvis använda assertInstanceOf och sedan ”\App\Card\Card”.
+        </p>
     </div>
 
     <div id="kmom05">

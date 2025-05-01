@@ -25,7 +25,7 @@ class CardHandTest extends TestCase
         $this->assertEquals(2, $hand->getNumberOfCards());
     }
 
-    public function testToStringReturnsString(): void
+    public function testToString(): void
     {
         $hand = new CardHand();
         $hand->addCard(new Card('K', 'spades'));
