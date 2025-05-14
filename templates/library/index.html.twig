@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Välkommen till Biblioteket{% endblock %}
+
+{% block body %}
+    <div class="library-container">
+        <h1>Välkommen till Biblioteket</h1>
+        <p>Välj vad du vill göra:</p>
+        <div class="library-actions">
+            <a href="{{ path('create_book') }}" class="btn btn-action">➕ Lägg till bok</a>
+            <a href="{{ path('library_all') }}" class="btn btn-action">📚 Visa alla böcker</a>
+        </div>        
+    </div>
+{% endblock %}
