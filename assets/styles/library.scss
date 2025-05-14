@@ -1,0 +1,113 @@
+.library-container {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    margin: 0 auto;
+    max-width: 960px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-form-container {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.book-list-container {
+    width: 100%;
+    max-width: 960px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.book-table th, .book-table td {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.book-image {
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 0 auto 20px auto;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-view { 
+    background-color: #28a745;
+    color: #fff;
+}
+.btn-view:hover { background-color: #218838; }
+
+.btn-edit {
+    background-color: #ffc107; color: #212529;
+    color: #fff;
+}
+.btn-edit:hover { background-color: #e0a800; }
+
+.btn-delete { 
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn-delete:hover { background-color: #c82333; }
+
+.btn-back {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.btn-back:hover {
+    background-color: #23272b;
+}
