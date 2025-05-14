@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alla böcker{% endblock %}
+
+{% block body %}
+    <div class="book-list-container">
+        <h1>Alla böcker</h1>
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Författare</th>
+                    <th>ISBN</th>
+                    <th>Bild</th>
+                    <th>Detaljer</th>
+                    <th>Redigera</th>
+                    <th>Radera</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.isbn }}</td>
+                        <td>
+                            {% if book.image %}
+                                <img src="{{ asset('build/images/' ~ book.image) }}" alt="{{ book.title }}" class="book-image" />
+                            {% else %}
+                                <p>Ingen bild</p>
+                            {% endif %}
+                        </td>
+                        <td><a href="{{ path('book_details', {'id': book.id}) }}" class="btn btn-view">Visa</a></td>
+                        <td><a href="{{ path('edit_book', {'id': book.id}) }}" class="btn btn-edit">Redigera</a></td>
+                        <td>
+                            <form action="{{ path('delete_book', {'id': book.id}) }}" method="post" onsubmit="return confirm('Är du säker på att du vill radera denna bok?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-delete">Radera</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('create_book') }}" class="btn btn-view"> Lägg till bok</a>
+        <a href="{{ path('library') }}" class="btn btn-back">Tillbaka till biblioteket</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redigera bok{% endblock %}
+
+{% block body %}
+    <div class="book-form-container">
+        <h1>Redigera bok</h1>
+
+        <form method="post" class="book-form">
+            <div class="form-group">
+                <label for="title">Titel:</label>
+                <input type="text" id="title" name="title" value="{{ book.title }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="author">Författare:</label>
+                <input type="text" id="author" name="author" value="{{ book.author }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Bild-URL:</label>
+                <input type="text" id="image" name="image" value="{{ book.image }}" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-view">Spara ändringar</button>
+        </form>
+
+        <p><a href="{{ path('book_details', {id: book.id}) }}" class="btn btn-back">Tillbaka till bokdetaljer</a></p>
+    </div>
+{% endblock %}
