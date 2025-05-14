@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lägg till bok{% endblock %}
+
+{% block body %}
+    <div class="book-form-container">
+        <h1>Lägg till ny bok</h1>
+
+        <form method="POST" class="book-form">
+            <div class="form-group">
+                <label for="title">Titel</label>
+                <input type="text" id="title" name="title" required class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn" required class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="author">Författare</label>
+                <input type="text" id="author" name="author" required class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="image">Bild (filnamn i build/images/)</label>
+                <input type="text" id="image" name="image" class="form-control" />
+            </div>        
+
+            <button type="submit" class="btn btn-view">Lägg till bok</button>
+            <a href="{{ path('library') }}" class="btn btn-back">Tillbaka till biblioteket</a>
+        </form>
+    </div>
+
+{% endblock %}
