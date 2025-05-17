@@ -13,12 +13,9 @@ class GameTwentyOne
         $deck = new DeckOfCards(true);
         $deck->shuffle();
 
-        $player = new CardHand();
-        $bank = new CardHand();
-
         $session->set('deck', $deck);
-        $session->set('player', $player);
-        $session->set('bank', $bank);
+        $session->set('player', new CardHand());
+        $session->set('bank', new CardHand());
         $session->set('status', 'playing');
         $session->set('showBank', false);
         $session->set('player_sum', 0);
@@ -33,7 +30,7 @@ class GameTwentyOne
     public function draw(SessionInterface $session): ?string
     {
         $deck = $this->getDeck($session);
-        $player = $this->getCardHand($session, 'player');
+        $player = $this->getHand($session, 'player');
 
         $player->addCard($deck->draw()[0]);
         $playerSum = $player->getSum();
@@ -43,7 +40,9 @@ class GameTwentyOne
         $session->set('player_sum', $playerSum);
 
         if ($playerSum > 21) {
-            $this->handlePlayerBust($session);
+            $session->set('status', 'You lost');
+            $session->set('showBank', true);
+            $this->updateScore($session, 'bank');
             return 'Du gick över 21. Banken vann!';
         }
 
@@ -53,24 +52,38 @@ class GameTwentyOne
     public function stay(SessionInterface $session): string
     {
         $deck = $this->getDeck($session);
-        $player = $this->getCardHand($session, 'player');
-        $bank = $this->getCardHand($session, 'bank');
+        $player = $this->getHand($session, 'player');
+        $bank = $this->getHand($session, 'bank');
 
         $playerSum = $player->getSum();
 
-        $this->bankDrawCards($bank, $deck);
+        while ($bank->getSum() < 17) {
+            $bank->addCard($deck->draw()[0]);
+        }
+
         $bankSum = $bank->getSum();
 
+        $session->set('deck', $deck);
         $session->set('bank', $bank);
-        $session->set('bank_sum', $bankSum);
         $session->set('player_sum', $playerSum);
+        $session->set('bank_sum', $bankSum);
         $session->set('showBank', true);
 
-        $result = $this->determineWinner($playerSum, $bankSum);
-        $session->set('status', $result['status']);
-        $this->updateScore($session, $result['winner']);
+        if ($bankSum > 21) {
+            $session->set('status', 'You won');
+            $this->updateScore($session, 'player');
+            return 'Banken gick över 21. Du vann!';
+        }
 
-        return $result['message'];
+        if ($bankSum >= $playerSum) {
+            $session->set('status', 'Bank won');
+            $this->updateScore($session, 'bank');
+            return 'Banken vann!';
+        }
+
+        $session->set('status', 'You won');
+        $this->updateScore($session, 'player');
+        return 'Du vann!';
     }
 
     public function reset(SessionInterface $session): void
@@ -88,12 +101,15 @@ class GameTwentyOne
             'draws' => 0,
         ]);
 
-        $scoreboard[$winner . 'Wins'] ??= 0;
-        if (in_array($winner, ['player', 'bank'])) {
-            $scoreboard[$winner . 'Wins']++;
-        } else {
-            $scoreboard['draws']++;
+        if (!is_array($scoreboard)) {
+            $scoreboard = ['playerWins' => 0, 'bankWins' => 0, 'draws' => 0];
         }
+
+        match ($winner) {
+            'player' => $scoreboard['playerWins']++,
+            'bank' => $scoreboard['bankWins']++,
+            default => $scoreboard['draws']++,
+        };
 
         $session->set('scoreboard', $scoreboard);
     }
@@ -104,57 +120,13 @@ class GameTwentyOne
         if (!$deck instanceof DeckOfCards) {
             $deck = new DeckOfCards(true);
             $deck->shuffle();
-            $session->set('deck', $deck);
         }
         return $deck;
     }
 
-    private function getCardHand(SessionInterface $session, string $who): CardHand
+    private function getHand(SessionInterface $session, string $key): CardHand
     {
-        $hand = $session->get($who);
-        if (!$hand instanceof CardHand) {
-            $hand = new CardHand();
-            $session->set($who, $hand);
-        }
-        return $hand;
-    }
-
-    private function bankDrawCards(CardHand $bank, DeckOfCards $deck): void
-    {
-        while ($bank->getSum() < 17) {
-            $bank->addCard($deck->draw()[0]);
-        }
-    }
-
-    private function determineWinner(int $playerSum, int $bankSum): array
-    {
-        if ($bankSum > 21) {
-            return [
-                'status' => 'You won',
-                'winner' => 'player',
-                'message' => 'Banken gick över 21. Du vann!'
-            ];
-        }
-
-        if ($bankSum >= $playerSum) {
-            return [
-                'status' => 'Bank won',
-                'winner' => 'bank',
-                'message' => 'Banken vann!'
-            ];
-        }
-
-        return [
-            'status' => 'You won',
-            'winner' => 'player',
-            'message' => 'Du vann!'
-        ];
-    }
-
-    private function handlePlayerBust(SessionInterface $session): void
-    {
-        $session->set('status', 'You lost');
-        $session->set('showBank', true);
-        $this->updateScore($session, 'bank');
+        $hand = $session->get($key);
+        return $hand instanceof CardHand ? $hand : new CardHand();
     }
 }

@@ -14,12 +14,14 @@ class TwentyOneController extends AbstractController
     #[Route('/game', name: 'game_index')]
     public function index(): Response
     {
+        // Visa startsidan för spelet
         return $this->render('game/index.html.twig');
     }
 
     #[Route('/game/start', name: 'game_start')]
     public function start(SessionInterface $session, GameTwentyOne $game): Response
     {
+        // Initiera nytt spel och lagra status i sessionen
         $game->start($session);
         $this->addFlash('notice', 'Spelet har startat!');
         return $this->redirectToRoute('game_play');
@@ -28,6 +30,7 @@ class TwentyOneController extends AbstractController
     #[Route('/game/doc', name: 'game_doc')]
     public function doc(): Response
     {
+        // Visa instruktioner/dokumentation
         return $this->render('game/doc.html.twig');
     }
 
@@ -36,26 +39,28 @@ class TwentyOneController extends AbstractController
     {
         $player = $session->get('player');
         $bank = $session->get('bank');
+        $showBank = $session->get('showBank', false);
 
-        $playerCards = $player instanceof CardHand ? $player->getCards() : [];
-        $bankCards = $session->get('showBank') && $bank instanceof CardHand ? $bank->getCards() : [];
+        $playerCards = ($player instanceof CardHand) ? $player->getCards() : [];
+        $bankCards = ($showBank && $bank instanceof CardHand) ? $bank->getCards() : [];
 
         return $this->render('game/play.html.twig', [
             'player' => $playerCards,
             'bank' => $bankCards,
-            'status' => $session->get('status'),
-            'player_sum' => $session->get('player_sum'),
-            'bank_sum' => $session->get('showBank') ? $session->get('bank_sum') : null,
-            'scoreboard' => $session->get('scoreboard'),
+            'status' => $session->get('status', ''),
+            'player_sum' => $session->get('player_sum', 0),
+            'bank_sum' => $showBank ? $session->get('bank_sum', 0) : null,
+            'scoreboard' => $session->get('scoreboard', []),
         ]);
     }
 
     #[Route('/game/draw', name: 'game_draw')]
     public function draw(SessionInterface $session, GameTwentyOne $game): Response
     {
+        // Spelaren drar ett kort, eventuellt varningsmeddelande returneras
         $message = $game->draw($session);
 
-        if ($message) {
+        if (!empty($message)) {
             $this->addFlash('warning', $message);
         }
 
@@ -65,12 +70,16 @@ class TwentyOneController extends AbstractController
     #[Route('/game/stay', name: 'game_stay')]
     public function stay(SessionInterface $session, GameTwentyOne $game): Response
     {
-        $message = $game->stay($session);
+        // Spelaren stannar, banken spelar ut och vinnare avgörs
+        // GameTwentyOne::stay returnerar nu ett associerat resultat ['type' => 'success'|'warning', 'message' => '...']
+        $result = $game->stay($session);
 
-        if (str_contains($message, 'Du vann')) {
-            $this->addFlash('success', $message);
+        // Kontrollera om $result är array med rätt format, annars fallback
+        if (is_array($result) && isset($result['type'], $result['message'])) {
+            $this->addFlash($result['type'], $result['message']);
         } else {
-            $this->addFlash('warning', $message);
+            // Om något oväntat händer, visa neutralt meddelande
+            $this->addFlash('warning', $result ?: 'Spelets status är okänd.');
         }
 
         return $this->redirectToRoute('game_play');
@@ -79,6 +88,7 @@ class TwentyOneController extends AbstractController
     #[Route('/game/reset', name: 'game_reset')]
     public function reset(SessionInterface $session, GameTwentyOne $game): Response
     {
+        // Återställ spelet genom att rensa session
         $game->reset($session);
         $this->addFlash('notice', 'Spelet har återställts.');
         return $this->redirectToRoute('game_index');

@@ -241,6 +241,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_index"
         },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson",
+            "name": "ApiControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003Aquote\u0028\u0029",
+            "name": "quote",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_quote"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDeck\u0028\u0029",
+            "name": "apiDeck",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AshufflePost\u0028\u0029",
+            "name": "shufflePost",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_shufflePost"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDraw\u0028\u0029",
+            "name": "apiDraw",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDrawNumber\u0028\u0029",
+            "name": "apiDrawNumber",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDrawNumber"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgameStatus\u0028\u0029",
+            "name": "gameStatus",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_gameStatus"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetAllBooks\u0028\u0029",
+            "name": "getAllBooks",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_getAllBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetBookByIsbn\u0028\u0029",
+            "name": "getBookByIsbn",
+            "summary": "",
+            "url": "classes/App-Controller-ApiControllerJson.html#method_getBookByIsbn"
+        },                {
             "fqsen": "\\App\\Controller\\CardController",
             "name": "CardController",
             "summary": "",
@@ -325,16 +370,6 @@ Search.appendIndex(
             "name": "save",
             "summary": "",
             "url": "classes/App-Controller-DiceGameController.html#method_save"
-        },                {
-            "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AgetDiceHandFromSession\u0028\u0029",
-            "name": "getDiceHandFromSession",
-            "summary": "",
-            "url": "classes/App-Controller-DiceGameController.html#method_getDiceHandFromSession"
-        },                {
-            "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AroundHasOne\u0028\u0029",
-            "name": "roundHasOne",
-            "summary": "",
-            "url": "classes/App-Controller-DiceGameController.html#method_roundHasOne"
         },                {
             "fqsen": "\\App\\Controller\\HomeControllerTwig",
             "name": "HomeControllerTwig",
@@ -760,31 +795,6 @@ Search.appendIndex(
             "name": "updateScore",
             "summary": "",
             "url": "classes/App-Game-GameTwentyOne.html#method_updateScore"
-        },                {
-            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetDeck\u0028\u0029",
-            "name": "getDeck",
-            "summary": "",
-            "url": "classes/App-Game-GameTwentyOne.html#method_getDeck"
-        },                {
-            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetCardHand\u0028\u0029",
-            "name": "getCardHand",
-            "summary": "",
-            "url": "classes/App-Game-GameTwentyOne.html#method_getCardHand"
-        },                {
-            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AbankDrawCards\u0028\u0029",
-            "name": "bankDrawCards",
-            "summary": "",
-            "url": "classes/App-Game-GameTwentyOne.html#method_bankDrawCards"
-        },                {
-            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AdetermineWinner\u0028\u0029",
-            "name": "determineWinner",
-            "summary": "",
-            "url": "classes/App-Game-GameTwentyOne.html#method_determineWinner"
-        },                {
-            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AhandlePlayerBust\u0028\u0029",
-            "name": "handlePlayerBust",
-            "summary": "",
-            "url": "classes/App-Game-GameTwentyOne.html#method_handlePlayerBust"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
