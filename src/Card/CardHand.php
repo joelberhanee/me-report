@@ -35,27 +35,30 @@ class CardHand
     public function getSum(): int
     {
         $sum = 0;
-        $numAces = 0;
-
+        $acesCount = 0;
+    
         foreach ($this->cards as $card) {
             $value = $card->getValue();
-
-            if (is_numeric($value)) {
-                $sum += (int)$value;
-            } elseif (in_array($value, ['J', 'Q', 'K'])) {
+    
+            if (in_array($value, ['J', 'Q', 'K'])) {
                 $sum += 10;
             } elseif ($value === 'A') {
-                $numAces++;
+                $acesCount++;
                 $sum += 1;
+            } else {
+                $sum += (int)$value;
             }
         }
-
-        for ($i = 0; $i < $numAces; $i++) {
-            if ($sum + 10 <= 21) {
-                $sum += 10;
-            }
+    
+        return $this->optimizeAces($sum, $acesCount);
+    }
+    
+    private function optimizeAces(int $sum, int $acesCount): int
+    {
+        while ($acesCount > 0 && $sum + 10 <= 21) {
+            $sum += 10;
+            $acesCount--;
         }
-
         return $sum;
     }
-}
+}    
