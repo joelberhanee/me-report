@@ -111,6 +111,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardHand.html#method_getSum"
         },                {
+            "fqsen": "\\App\\Card\\CardHand\u003A\u003AoptimizeAces\u0028\u0029",
+            "name": "optimizeAces",
+            "summary": "",
+            "url": "classes/App-Card-CardHand.html#method_optimizeAces"
+        },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024cards",
             "name": "cards",
             "summary": "",
@@ -166,6 +171,66 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-AboutControllerTwig.html#method_about"
         },                {
+            "fqsen": "\\App\\Controller\\Api\\DeckController",
+            "name": "DeckController",
+            "summary": "",
+            "url": "classes/App-Controller-Api-DeckController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\DeckController\u003A\u003AapiDeck\u0028\u0029",
+            "name": "apiDeck",
+            "summary": "",
+            "url": "classes/App-Controller-Api-DeckController.html#method_apiDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\DeckController\u003A\u003AshufflePost\u0028\u0029",
+            "name": "shufflePost",
+            "summary": "",
+            "url": "classes/App-Controller-Api-DeckController.html#method_shufflePost"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\DeckController\u003A\u003AapiDraw\u0028\u0029",
+            "name": "apiDraw",
+            "summary": "",
+            "url": "classes/App-Controller-Api-DeckController.html#method_apiDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\DeckController\u003A\u003AapiDrawNumber\u0028\u0029",
+            "name": "apiDrawNumber",
+            "summary": "",
+            "url": "classes/App-Controller-Api-DeckController.html#method_apiDrawNumber"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\GameController",
+            "name": "GameController",
+            "summary": "",
+            "url": "classes/App-Controller-Api-GameController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\GameController\u003A\u003AgameStatus\u0028\u0029",
+            "name": "gameStatus",
+            "summary": "",
+            "url": "classes/App-Controller-Api-GameController.html#method_gameStatus"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\LibraryController",
+            "name": "LibraryController",
+            "summary": "",
+            "url": "classes/App-Controller-Api-LibraryController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\LibraryController\u003A\u003AgetAllBooks\u0028\u0029",
+            "name": "getAllBooks",
+            "summary": "",
+            "url": "classes/App-Controller-Api-LibraryController.html#method_getAllBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\LibraryController\u003A\u003AgetBookByIsbn\u0028\u0029",
+            "name": "getBookByIsbn",
+            "summary": "",
+            "url": "classes/App-Controller-Api-LibraryController.html#method_getBookByIsbn"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\QuoteController",
+            "name": "QuoteController",
+            "summary": "",
+            "url": "classes/App-Controller-Api-QuoteController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\Api\\QuoteController\u003A\u003Aquote\u0028\u0029",
+            "name": "quote",
+            "summary": "",
+            "url": "classes/App-Controller-Api-QuoteController.html#method_quote"
+        },                {
             "fqsen": "\\App\\Controller\\ApiController",
             "name": "ApiController",
             "summary": "",
@@ -175,51 +240,6 @@ Search.appendIndex(
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson",
-            "name": "ApiControllerJson",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003Aquote\u0028\u0029",
-            "name": "quote",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_quote"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDeck\u0028\u0029",
-            "name": "apiDeck",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AshufflePost\u0028\u0029",
-            "name": "shufflePost",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_shufflePost"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDraw\u0028\u0029",
-            "name": "apiDraw",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDraw"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDrawNumber\u0028\u0029",
-            "name": "apiDrawNumber",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDrawNumber"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgameStatus\u0028\u0029",
-            "name": "gameStatus",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_gameStatus"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetAllBooks\u0028\u0029",
-            "name": "getAllBooks",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_getAllBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetBookByIsbn\u0028\u0029",
-            "name": "getBookByIsbn",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_getBookByIsbn"
         },                {
             "fqsen": "\\App\\Controller\\CardController",
             "name": "CardController",
@@ -305,6 +325,16 @@ Search.appendIndex(
             "name": "save",
             "summary": "",
             "url": "classes/App-Controller-DiceGameController.html#method_save"
+        },                {
+            "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AgetDiceHandFromSession\u0028\u0029",
+            "name": "getDiceHandFromSession",
+            "summary": "",
+            "url": "classes/App-Controller-DiceGameController.html#method_getDiceHandFromSession"
+        },                {
+            "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AroundHasOne\u0028\u0029",
+            "name": "roundHasOne",
+            "summary": "",
+            "url": "classes/App-Controller-DiceGameController.html#method_roundHasOne"
         },                {
             "fqsen": "\\App\\Controller\\HomeControllerTwig",
             "name": "HomeControllerTwig",
@@ -425,16 +455,6 @@ Search.appendIndex(
             "name": "viewAllProduct",
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
-        },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewProductWithMinimumValue\u0028\u0029",
-            "name": "viewProductWithMinimumValue",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_viewProductWithMinimumValue"
-        },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductByMinimumValue\u0028\u0029",
-            "name": "showProductByMinimumValue",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
         },                {
             "fqsen": "\\App\\Controller\\ReportControllerTwig",
             "name": "ReportControllerTwig",
@@ -741,6 +761,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Game-GameTwentyOne.html#method_updateScore"
         },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetDeck\u0028\u0029",
+            "name": "getDeck",
+            "summary": "",
+            "url": "classes/App-Game-GameTwentyOne.html#method_getDeck"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetCardHand\u0028\u0029",
+            "name": "getCardHand",
+            "summary": "",
+            "url": "classes/App-Game-GameTwentyOne.html#method_getCardHand"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AbankDrawCards\u0028\u0029",
+            "name": "bankDrawCards",
+            "summary": "",
+            "url": "classes/App-Game-GameTwentyOne.html#method_bankDrawCards"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AdetermineWinner\u0028\u0029",
+            "name": "determineWinner",
+            "summary": "",
+            "url": "classes/App-Game-GameTwentyOne.html#method_determineWinner"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AhandlePlayerBust\u0028\u0029",
+            "name": "handlePlayerBust",
+            "summary": "",
+            "url": "classes/App-Game-GameTwentyOne.html#method_handlePlayerBust"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
@@ -766,16 +811,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method___construct"
         },                {
-            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue\u0028\u0029",
-            "name": "findByMinimumValue",
-            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one.",
-            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue"
-        },                {
-            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003AfindByMinimumValue2\u0028\u0029",
-            "name": "findByMinimumValue2",
-            "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
-            "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue2"
-        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -790,6 +825,11 @@ Search.appendIndex(
             "name": "Controller",
             "summary": "",
             "url": "namespaces/app-controller.html"
+        },                {
+            "fqsen": "\\App\\Controller\\Api",
+            "name": "Api",
+            "summary": "",
+            "url": "namespaces/app-controller-api.html"
         },                {
             "fqsen": "\\App\\Dice",
             "name": "Dice",

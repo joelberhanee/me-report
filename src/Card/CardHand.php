@@ -36,10 +36,10 @@ class CardHand
     {
         $sum = 0;
         $acesCount = 0;
-    
+
         foreach ($this->cards as $card) {
             $value = $card->getValue();
-    
+
             if (in_array($value, ['J', 'Q', 'K'])) {
                 $sum += 10;
             } elseif ($value === 'A') {
@@ -49,10 +49,10 @@ class CardHand
                 $sum += (int)$value;
             }
         }
-    
+
         return $this->optimizeAces($sum, $acesCount);
     }
-    
+
     private function optimizeAces(int $sum, int $acesCount): int
     {
         while ($acesCount > 0 && $sum + 10 <= 21) {
@@ -61,4 +61,4 @@ class CardHand
         }
         return $sum;
     }
-}    
+}
