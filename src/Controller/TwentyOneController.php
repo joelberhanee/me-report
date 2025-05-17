@@ -72,7 +72,7 @@ class TwentyOneController extends AbstractController
     {
         $result = $game->stay($session);
     
-        // Nu behöver du inte kolla om det är array, det är alltid array
+        // Nu behöver du inte kolla is_array, för stay() returnerar alltid array
         $this->addFlash($result['type'], $result['message']);
     
         return $this->redirectToRoute('game_play');
