@@ -21,4 +21,35 @@ class DiceTest extends TestCase
         $res = $die->getAsString();
         $this->assertNotEmpty($res);
     }
+
+    public function testConstruct()
+    {
+        $dice = new Dice();
+        $this->assertNull($dice->getValue());
+    }
+
+    public function testRoll()
+    {
+        $dice = new Dice();
+        $value = $dice->roll();
+        $this->assertIsInt($value);
+        $this->assertGreaterThanOrEqual(1, $value);
+        $this->assertLessThanOrEqual(6, $value);
+        $this->assertEquals($value, $dice->getValue());
+    }
+
+    public function testGetValueBeforeRoll()
+    {
+        $dice = new Dice();
+        $this->assertNull($dice->getValue());
+    }
+
+    public function testGetAsString()
+    {
+        $dice = new Dice();
+        $this->assertEquals('[ ]', $dice->getAsString());
+        $dice->roll();
+        $str = $dice->getAsString();
+        $this->assertMatchesRegularExpression('/\[\d\]/', $str);
+    }
 }
