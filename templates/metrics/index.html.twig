@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+    <h1>Metrics-analys</h1>
+
+    <section>
+        <h2>Introduktion – 6C-modellen</h2>
+        <p>
+            I denna analys använder jag 6C-modellen som består av:
+        </p>
+        <ul>
+            <li><strong>Codestyle:</strong> Följer PSR-standarder och läsbarhet.</li>
+            <li><strong>Coverage:</strong> Hur stor del av koden testas.</li>
+            <li><strong>Complexity:</strong> (T.ex. Cyclomatic Complexity) i metoder och klasser.</li>
+            <li><strong>Cohesion:</strong> Om klasser/metoder har tydliga syften.</li>
+            <li><strong>Coupling:</strong> Hur beroende klasser är av varandra.</li>
+            <li><strong>CRAP:</strong> Kombination av komplexitet och testtäckning, ger varningsvärde.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Phpmetrics</h2>
+        <p>
+            Analysen visade <strong>1 195 rader kod</strong> fördelade över <strong>27 klasser</strong>. Några identifierade problem:
+        </p>
+        <ul>
+            <li><strong>CardGraphic</strong> hade hög komplexitet (> 5) och låg sammanhållning (cohesion).</li>
+            <li><strong>DeckOfCards</strong> var beroende av både <code>Card</code> och <code>CardGraphic</code>, vilket ökade koppling.</li>
+            <li><strong>TwentyOneController</strong> hade många ansvar och låg testtäckning.</li>
+        </ul>
+        <p>
+            Bild från PhpMetrics:
+        </p>
+        <img src="{{ asset('build/images/PhpMetrics.png') }}" alt="Phpmetrics cirklar" width="600">
+        <p>
+            Rödare cirklar visar komplexare kod. Här syns att några klasser behöver brytas upp eller förenklas.
+        </p>
+    </section>
+    
+    <section>
+        <h2>ClassRank</h2>
+        <p>
+            ClassRank liknar Googles PageRank – en indikator på viktiga knutpunkter i projektet. Höga värden betyder att en klass är central.
+        </p>
+        <ul>
+            <li><code>App\Card\Card</code>: 0.34</li>
+            <li><code>App\Dice\Dice</code>: 0.13</li>
+            <li><code>App\Controller\TwentyOneController</code>: 0.02</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Scrutinizer</h2>
+        <p>
+            Scrutinizer visar både kodkvalitet och testtäckning. Resultat:
+        </p>
+        <ul>
+            <li><strong>Kvalitetsbetyg:</strong> 9.93/10</li>
+            <li><strong>Issues:</strong> 5 (2 stilrelaterade, 3 komplexitet/test)</li>
+            <li><strong>Kodtäckning:</strong> 72%</li>
+        </ul>
+        <p>
+            <strong>Badges:</strong>
+        </p>
+        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/quality-score.png?b=main" alt="Quality Score">
+        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/coverage.png?b=main" alt="Code Coverage">
+        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/build.png?b=main" alt="Build Status">
+    </section>
+    
+    <section>
+        <h2>Förbättringar</h2>
+        <ol>
+            <li><strong>Dela upp CardGraphic:</strong> Flytta all presentation till en dedikerad serviceklass <code>CardRenderService</code>.</li>
+            <li><strong>Testa fler controllers:</strong> Lägg till PHPUnit-tester för <code>LibraryController</code> och <code>MetricsController</code>.</li>
+            <li><strong>Skapa interface för kort:</strong> Inför ett <code>CardInterface</code> så att <code>DeckOfCards</code> kan använda polymorfism, minska beroenden.</li>
+        </ol>
+        <p>
+            Förväntad effekt:
+            <ul>
+                <li>Minskad cyklomatisk komplexitet</li>
+                <li>Färre varningar i Scrutinizer</li>
+                <li>Bättre testtäckning och CRAP-index</li>
+            </ul>
+        </p>
+    </section>
+    
+    <section>
+        <h2>Resultat efter förbättringar</h2>
+        <p><strong>PhpMetrics – före och efter</strong></p>
+        <ul>
+            <li><strong>CardGraphic:</strong> Complex 6.2 → 3.4</li>
+            <li><strong>CRAP i TwentyOneController:</strong> 22 → 11</li>
+            <li><strong>Antal metoder >10 rader:</strong> 6 → 2</li>
+        </ul>
+    
+        <p><strong>Scrutinizer – före och efter</strong></p>
+        <ul>
+            <li><strong>Kvalitet:</strong> 9.93 → 10.0</li>
+            <li><strong>Kodtäckning:</strong> 11% → </li>
+            <li><strong>Issues:</strong> 5 → 1</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Diskussion</h2>
+        <p>
+            Att arbeta med kodkvalitet aktivt med verktyg som Phpmetrics och Scrutinizer är mycket effektivt. Jag kunde snabbt hitta svagheter i min kod, fokusera på dem och mäta effekten av mina förbättringar.
+        </p>
+        <p>
+            En fördel är att dessa verktyg främjar reflektion kring kodens struktur och testbarhet. En nackdel kan vara att man blir för fokuserad på poäng, och glömmer faktisk användbarhet eller enkelhet.
+        </p>
+        <p>
+            Jag ser potential i att integrera analyser i CI/CD-flödet för att få kontinuerlig feedback på kvalitet – något jag planerar att göra i framtida projekt.
+        </p>
+    </section>
+    {% endblock %}

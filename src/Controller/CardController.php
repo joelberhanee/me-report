@@ -34,7 +34,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/shuffle', name: 'card_shuffle', methods: ['GET'])]
-    public function shuffle(SessionInterface $session): Response
+    public function shuffle(): Response
     {
         return $this->render('card/shuffle.html.twig');
     }
