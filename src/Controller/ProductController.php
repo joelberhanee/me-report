@@ -118,28 +118,4 @@ final class ProductController extends AbstractController
 
         return $this->render('product/view.html.twig', $data);
     }
-
-    #[Route('/product/view/{value}', name: 'product_view_minimum_value')]
-    public function viewProductWithMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue($value);
-
-        $data = [
-            'products' => $products
-        ];
-
-        return $this->render('product/view.html.twig', $data);
-    }
-
-    #[Route('/product/show/min/{value}', name: 'product_by_min_value')]
-    public function showProductByMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue2($value);
-
-        return $this->json($products);
-    }
 }
