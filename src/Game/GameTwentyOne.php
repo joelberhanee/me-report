@@ -75,45 +75,45 @@ class GameTwentyOne
      * @param SessionInterface $session
      * @return string Resultatmeddelande
      */
-    public function stay(SessionInterface $session): string
+    public function stay(SessionInterface $session): array
     {
         $deck = $this->getDeck($session);
         $player = $this->getHand($session, 'player');
         $bank = $this->getHand($session, 'bank');
-
+    
         $playerSum = $player->getSum();
-
+    
         // Banken drar kort tills summan är minst 17
         while ($bank->getSum() < 17) {
             $bank->addCard($deck->draw()[0]);
         }
-
+    
         $bankSum = $bank->getSum();
-
+    
         // Uppdatera sessionen med bankens hand och summor
         $session->set('deck', $deck);
         $session->set('bank', $bank);
         $session->set('player_sum', $playerSum);
         $session->set('bank_sum', $bankSum);
         $session->set('showBank', true);  // Visa bankens kort nu
-
+    
         // Avgör vinnare baserat på poängsumma
         if ($bankSum > 21) {
             $session->set('status', 'You won');
             $this->updateScore($session, 'player');
-            return 'Banken gick över 21. Du vann!';
+            return ['type' => 'success', 'message' => 'Banken gick över 21. Du vann!'];
         }
-
+    
         if ($bankSum >= $playerSum) {
             $session->set('status', 'Bank won');
             $this->updateScore($session, 'bank');
-            return 'Banken vann!';
+            return ['type' => 'error', 'message' => 'Banken vann!'];
         }
-
+    
         $session->set('status', 'You won');
         $this->updateScore($session, 'player');
-        return 'Du vann!';
-    }
+        return ['type' => 'success', 'message' => 'Du vann!'];
+    }    
 
     /**
      * Återställer spelet genom att ta bort alla relaterade session-variabler.
