@@ -6,7 +6,7 @@
 
 [![Build Status](https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/joelberhanee/me-report/build-status/main)
 
-![Projektbild](./build/public/images/IMG_8789.WEBP)
+![Projektbild](./assets/images/IMG_8789.WEBP)
 
 Detta är ett Symfony-projekt som använder MVC-struktur för att bygga en webbapplikation. Följ stegen nedan för att klona och köra webbplatsen lokalt.
 
