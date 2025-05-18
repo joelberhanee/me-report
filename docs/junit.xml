@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="App\Tests\Game\GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" tests="5" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.024551">
-    <testcase name="testStartInitializesSession" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="22" assertions="1" time="0.019542"/>
-    <testcase name="testDrawAddsCardToPlayer" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="50" assertions="2" time="0.002074"/>
-    <testcase name="testDrawBustsPlayer" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="74" assertions="3" time="0.001517"/>
-    <testcase name="testStayBankWins" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="101" assertions="3" time="0.001000"/>
-    <testcase name="testResetClearsSessionVariables" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="134" assertions="1" time="0.000417"/>
+  <testsuite name="App\Tests\Game\GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" tests="5" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.093891">
+    <testcase name="testStartInitializesSession" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="22" assertions="2" time="0.080636"/>
+    <testcase name="testDrawAddsCardToPlayer" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="39" assertions="2" time="0.002853"/>
+    <testcase name="testDrawBustsPlayer" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="55" assertions="3" time="0.005664"/>
+    <testcase name="testStayBankWins" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="79" assertions="3" time="0.004229"/>
+    <testcase name="testResetClearsSessionVariables" class="App\Tests\Game\GameTwentyOneTest" classname="App.Tests.Game.GameTwentyOneTest" file="/Users/henokberhane/dbwebb-kurser/mvc/me/report/tests/Game/GameTwentyOneTest.php" line="112" assertions="2" time="0.000510"/>
   </testsuite>
 </testsuites>
