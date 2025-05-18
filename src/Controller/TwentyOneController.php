@@ -70,19 +70,19 @@ class TwentyOneController extends AbstractController
     #[Route('/game/stay', name: 'game_stay')]
     public function stay(SessionInterface $session, GameTwentyOne $game): Response
     {
-        // Spelaren stannar, banken spelar ut och vinnare avgörs
-        // GameTwentyOne::stay returnerar antingen en array med 'type' och 'message' eller en sträng
+        // GameTwentyOne::stay returnerar en sträng eller assoc array
         $result = $game->stay($session);
     
-        if (is_array($result) && isset($result['type'], $result['message'])) {
-            $this->addFlash($result['type'], $result['message']);
+        if (is_array($result)) {
+            $type = $result['type'] ?? 'warning';
+            $message = $result['message'] ?? 'Spelets status är okänd.';
+            $this->addFlash($type, $message);
         } else {
-            // Anta att $result är en sträng med meddelande, eller fallback-meddelande
             $this->addFlash('warning', (string) $result ?: 'Spelets status är okänd.');
         }
-
+    
         return $this->redirectToRoute('game_play');
-    }
+    }    
 
     #[Route('/game/reset', name: 'game_reset')]
     public function reset(SessionInterface $session, GameTwentyOne $game): Response
