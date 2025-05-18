@@ -72,13 +72,13 @@ class TwentyOneController extends AbstractController
     {
         // stay() returnerar enbart ett meddelande (sträng)
         $message = $game->stay($session);
-    
+
         if (!empty($message)) {
             $this->addFlash('warning', $message);
         }
-    
+
         return $this->redirectToRoute('game_play');
-    }    
+    }
 
     #[Route('/game/reset', name: 'game_reset')]
     public function reset(SessionInterface $session, GameTwentyOne $game): Response

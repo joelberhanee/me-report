@@ -32,7 +32,7 @@ class DiceTest extends TestCase
     {
         $dice = new Dice();
         $this->assertSame("[ ]", $dice->getAsString());
-        
+
         $value = $dice->roll();
         $this->assertSame("[$value]", $dice->getAsString());
     }

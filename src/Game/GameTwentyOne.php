@@ -186,4 +186,3 @@ class GameTwentyOne
         return $hand instanceof CardHand ? $hand : new CardHand();
     }
 }
-

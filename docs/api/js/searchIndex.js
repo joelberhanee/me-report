@@ -93,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetCards\u0028\u0029",
             "name": "getCards",
-            "summary": "",
+            "summary": "H\u00E4mta\u0020alla\u0020kort\u0020i\u0020handen",
             "url": "classes/App-Card-CardHand.html#method_getCards"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetNumberOfCards\u0028\u0029",
@@ -240,51 +240,6 @@ Search.appendIndex(
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson",
-            "name": "ApiControllerJson",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003Aquote\u0028\u0029",
-            "name": "quote",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_quote"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDeck\u0028\u0029",
-            "name": "apiDeck",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AshufflePost\u0028\u0029",
-            "name": "shufflePost",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_shufflePost"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDraw\u0028\u0029",
-            "name": "apiDraw",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDraw"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AapiDrawNumber\u0028\u0029",
-            "name": "apiDrawNumber",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_apiDrawNumber"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgameStatus\u0028\u0029",
-            "name": "gameStatus",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_gameStatus"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetAllBooks\u0028\u0029",
-            "name": "getAllBooks",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_getAllBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiControllerJson\u003A\u003AgetBookByIsbn\u0028\u0029",
-            "name": "getBookByIsbn",
-            "summary": "",
-            "url": "classes/App-Controller-ApiControllerJson.html#method_getBookByIsbn"
         },                {
             "fqsen": "\\App\\Controller\\CardController",
             "name": "CardController",
@@ -773,28 +728,38 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003Astart\u0028\u0029",
             "name": "start",
-            "summary": "",
+            "summary": "Startar\u0020ett\u0020nytt\u0020spel\u003A\u0020skapar\u0020och\u0020blandar\u0020kortleken,\nnollst\u00E4ller\u0020spelarens\u0020och\u0020bankens\u0020h\u00E4nder\u0020samt\u0020status\u0020och\u0020po\u00E4ng.",
             "url": "classes/App-Game-GameTwentyOne.html#method_start"
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
-            "summary": "",
+            "summary": "Spelaren\u0020drar\u0020ett\u0020kort\u0020fr\u00E5n\u0020kortleken.",
             "url": "classes/App-Game-GameTwentyOne.html#method_draw"
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003Astay\u0028\u0029",
             "name": "stay",
-            "summary": "",
+            "summary": "Spelaren\u0020v\u00E4ljer\u0020att\u0020stanna.",
             "url": "classes/App-Game-GameTwentyOne.html#method_stay"
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003Areset\u0028\u0029",
             "name": "reset",
-            "summary": "",
+            "summary": "\u00C5terst\u00E4ller\u0020spelet\u0020genom\u0020att\u0020ta\u0020bort\u0020alla\u0020relaterade\u0020session\u002Dvariabler.",
             "url": "classes/App-Game-GameTwentyOne.html#method_reset"
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AupdateScore\u0028\u0029",
             "name": "updateScore",
-            "summary": "",
+            "summary": "Uppdaterar\u0020scoreboard\u0020i\u0020sessionen\u0020beroende\u0020p\u00E5\u0020vem\u0020som\u0020vann.",
             "url": "classes/App-Game-GameTwentyOne.html#method_updateScore"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetDeck\u0028\u0029",
+            "name": "getDeck",
+            "summary": "H\u00E4mtar\u0020kortleken\u0020fr\u00E5n\u0020sessionen,\u0020eller\u0020skapar\u0020en\u0020ny\u0020och\u0020blandar\u0020den\u0020om\u0020den\u0020saknas.",
+            "url": "classes/App-Game-GameTwentyOne.html#method_getDeck"
+        },                {
+            "fqsen": "\\App\\Game\\GameTwentyOne\u003A\u003AgetHand\u0028\u0029",
+            "name": "getHand",
+            "summary": "H\u00E4mtar\u0020spelarens\u0020eller\u0020bankens\u0020hand\u0020fr\u00E5n\u0020sessionen.",
+            "url": "classes/App-Game-GameTwentyOne.html#method_getHand"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",

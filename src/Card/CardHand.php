@@ -13,8 +13,8 @@ class CardHand
         $this->cards[] = $card;
     }
 
-    /** 
-     * Hämta alla kort i handen 
+    /**
+     * Hämta alla kort i handen
      * @return Card[]
      */
     public function getCards(): array
@@ -43,10 +43,10 @@ class CardHand
     {
         $sum = 0;
         $acesCount = 0; // Räkna antalet ess
-    
+
         foreach ($this->cards as $card) {
             $value = $card->getValue();
-    
+
             if (in_array($value, ['J', 'Q', 'K'])) {
                 // Klädda kort är värda 10 poäng
                 $sum += 10;
@@ -59,11 +59,11 @@ class CardHand
                 $sum += (int)$value;
             }
         }
-    
+
         // Justera ess om det går utan att gå över 21
         return $this->optimizeAces($sum, $acesCount);
     }
-    
+
     // Om det finns ess kan vi räkna dem som 11 istället för 1, om det inte gör att summan blir för hög
     private function optimizeAces(int $sum, int $acesCount): int
     {
@@ -73,4 +73,4 @@ class CardHand
         }
         return $sum;
     }
-}    
+}
