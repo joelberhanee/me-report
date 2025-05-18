@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-05-18 16:59:46        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-05-18 17:15:13        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -60,24 +60,24 @@
         <div class="bloc bloc-number">
             <div class="label">Test suites</div>
             <div class="number">
-                4            </div>
+                7            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">Assertions</div>
             <div class="number">
-                35            </div>
+                65            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">
                 classes never called by tests
-                <small>(86.67 %)</small>
+                <small>(76.67 %)</small>
             </div>
             <div class="number">
-                26            </div>
+                23            </div>
         </div>
     </div>
 </div>
@@ -144,39 +144,6 @@
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);">
                                         0.02                                        </span>
-                                    </td>
-                                                            </tr>
-                                                        <tr>
-                                <td><span class="path">App\Dice\DiceHand</span></td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.4);">
-                                        5                                        </span>
-                                    </td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);">
-                                        0.03                                        </span>
-                                    </td>
-                                                            </tr>
-                                                        <tr>
-                                <td><span class="path">App\Dice\Dice</span></td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);">
-                                        2                                        </span>
-                                    </td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);">
-                                        0.02                                        </span>
-                                    </td>
-                                                            </tr>
-                                                        <tr>
-                                <td><span class="path">App\Dice\DiceGraphic</span></td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
-                                        1                                        </span>
-                                    </td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);">
-                                        0.01                                        </span>
                                     </td>
                                                             </tr>
                                                         <tr>
@@ -469,6 +436,45 @@
                                         <span class="path">App\Card\DeckOfCards</span>
                                                                     </td>
                             </tr>
+                                                    <tr>
+                                <td valign="top"><span class="path">App\Tests\Dice\DiceGraphicTest</span></td>
+                                <td style="padding-bottom: 1em;">
+                                                                                                                    <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">PHPUnit\Framework\TestCase</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            1                                        </span>
+                                        <span class="path">App\Dice\DiceGraphic</span>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <td valign="top"><span class="path">App\Tests\Dice\DiceHandTest</span></td>
+                                <td style="padding-bottom: 1em;">
+                                                                                                                    <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">PHPUnit\Framework\TestCase</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            5                                        </span>
+                                        <span class="path">App\Dice\DiceHand</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            2                                        </span>
+                                        <span class="path">App\Dice\Dice</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            1                                        </span>
+                                        <span class="path">App\Dice\DiceGraphic</span>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <td valign="top"><span class="path">App\Tests\Dice\DiceTest</span></td>
+                                <td style="padding-bottom: 1em;">
+                                                                                                                    <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">PHPUnit\Framework\TestCase</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            2                                        </span>
+                                        <span class="path">App\Dice\Dice</span>
+                                                                    </td>
+                            </tr>
                                             </table>
                 </div>
             </div>
@@ -713,7 +719,7 @@
 
 
             
-            var json = {"name":"Execution time","children":[{"name":"App\\Tests\\Card\\CardGraphicTest","time":0.036607},{"name":"App\\Tests\\Card\\CardHandTest","time":0.009114},{"name":"App\\Tests\\Card\\CardTest","time":0.001233},{"name":"App\\Tests\\Card\\DeckOfCardsTest","time":0.040806}]};
+            var json = {"name":"Execution time","children":[{"name":"App\\Tests\\Card\\CardGraphicTest","time":0.025703},{"name":"App\\Tests\\Card\\CardHandTest","time":0.00327},{"name":"App\\Tests\\Card\\CardTest","time":0.000243},{"name":"App\\Tests\\Card\\DeckOfCardsTest","time":0.241146},{"name":"App\\Tests\\Dice\\DiceGraphicTest","time":0.006501},{"name":"App\\Tests\\Dice\\DiceHandTest","time":0.005633},{"name":"App\\Tests\\Dice\\DiceTest","time":0.004726}]};
             root = json;
             var nodes = treemap.nodes(json)
                 .filter(function (d) {
