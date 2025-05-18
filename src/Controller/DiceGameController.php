@@ -13,28 +13,35 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DiceGameController extends AbstractController
 {
-    // Startsida för spelet
+    /**
+     * Startsida för Pig-spelet. Innehåller info och startlänk.
+     */
     #[Route("/game/pig", name: "pig_start")]
     public function home(): Response
     {
         return $this->render('pig/home.html.twig');
     }
 
-    // Enkel testroute för att rulla en vanlig tärning
+    /**
+     * Test-route: Slår en enkel standardtärning (1–6) och visar resultatet.
+     */
     #[Route("/game/pig/test/roll", name: "test_roll_dice")]
     public function testRollDice(): Response
     {
         $die = new Dice();
 
         $data = [
-            "dice" => $die->roll(), // Slår tärningen
-            "diceString" => $die->getAsString(), // Hämtar strängrepresentation av tärningen
+            "dice" => $die->roll(),              // Tärningskast, numeriskt värde
+            "diceString" => $die->getAsString(), // Visuell representation (ex: "⚄")
         ];
 
         return $this->render('pig/test/roll.html.twig', $data);
     }
 
-    // Route för att testa att rulla flera grafiska tärningar
+    /**
+     * Test-route: Slår ett valfritt antal grafiska tärningar och visar dem.
+     * Begränsad till max 99 tärningar.
+     */
     #[Route("/game/pig/test/roll/{num<\d+>}", name: "test_roll_num_dices")]
     public function testRollDices(int $num): Response
     {
@@ -43,10 +50,12 @@ class DiceGameController extends AbstractController
         }
 
         $diceRoll = [];
+
+        // Skapa och slå varje grafisk tärning
         for ($i = 1; $i <= $num; $i++) {
-            $die = new DiceGraphic(); // Använder grafisk tärning
+            $die = new DiceGraphic();
             $die->roll();
-            $diceRoll[] = $die->getAsString();
+            $diceRoll[] = $die->getAsString(); // Lägg till den grafiska representationen
         }
 
         $data = [
@@ -57,7 +66,10 @@ class DiceGameController extends AbstractController
         return $this->render('pig/test/roll_many.html.twig', $data);
     }
 
-    // Testar DiceHand med blandade tärningar
+    /**
+     * Test-route: Skapar ett DiceHand-objekt med blandade tärningar (grafiska och standard)
+     * och visar tärningsresultaten.
+     */
     #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]
     public function testDiceHand(int $num): Response
     {
@@ -66,59 +78,67 @@ class DiceGameController extends AbstractController
         }
 
         $hand = new DiceHand();
+
+        // Lägg till tärningar växelvis: grafisk (ojämnt index), vanlig (jämnt index)
         for ($i = 1; $i <= $num; $i++) {
-            if ($i % 2 === 1) {
-                $hand->add(new DiceGraphic()); // Udda: grafisk tärning
-            } else {
-                $hand->add(new Dice()); // Jämn: vanlig tärning
-            }
+            $hand->add($i % 2 === 1 ? new DiceGraphic() : new Dice());
         }
 
-        $hand->roll(); // Slår alla tärningar
+        $hand->roll();
 
         $data = [
             "num_dices" => $hand->getNumberDices(),
-            "diceRoll" => $hand->getString(), // Hämtar alla värden som strängar
+            "diceRoll" => $hand->getString(),
         ];
 
         return $this->render('pig/test/dicehand.html.twig', $data);
     }
 
-    // GET-formulär för att initiera spel
+    /**
+     * GET: Visar ett formulär där spelaren kan välja antal tärningar inför spelets start.
+     */
     #[Route("/game/pig/init", name: "pig_init_get", methods: ['GET'])]
     public function init(): Response
     {
         return $this->render('pig/init.html.twig');
     }
 
-    // POST-route som skapar DiceHand och sparar till session
+    /**
+     * POST: Initierar spelet Pig med det antal tärningar som användaren valt.
+     * Skapar och sparar DiceHand och speltillstånd i sessionen.
+     */
     #[Route("/game/pig/init", name: "pig_init_post", methods: ['POST'])]
     public function initCallback(Request $request, SessionInterface $session): Response
     {
-        $numDice = $request->request->get('num_dices'); // Antal tärningar från formulär
+        $numDice = $request->request->get('num_dices');
 
         $hand = new DiceHand();
+
+        // Lägg till det valda antalet grafiska tärningar
         for ($i = 1; $i <= $numDice; $i++) {
             $hand->add(new DiceGraphic());
         }
-        $hand->roll();
 
-        // Spara nödvändiga speldelar i session
+        $hand->roll(); // Första kastet
+
+        // Initiera sessionsdata för spelet
         $session->set("pig_dicehand", $hand);
         $session->set("pig_dices", $numDice);
-        $session->set("pig_round", 0);
-        $session->set("pig_total", 0);
+        $session->set("pig_round", 0); // Rundpoäng
+        $session->set("pig_total", 0); // Totalpoäng
 
         return $this->redirectToRoute('pig_play');
     }
 
-    // GET-route för att visa spelvyn med nuvarande status
+    /**
+     * GET: Visar spelvyn med aktuell DiceHand, rundpoäng och totalpoäng.
+     */
     #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
     public function play(SessionInterface $session): Response
     {
         $dicehand = $session->get("pig_dicehand");
 
-        // Återställ DiceHand om den saknas
+        // Om DiceHand saknas (t.ex. om session gått ut), skapa ny
         if (!$dicehand instanceof DiceHand) {
             $dicehand = new DiceHand();
             $session->set("pig_dicehand", $dicehand);
@@ -134,7 +154,10 @@ class DiceGameController extends AbstractController
         return $this->render('pig/play.html.twig', $data);
     }
 
-    // POST-route för att slå tärningar i pågående runda
+    /**
+     * POST: Slår om alla tärningar och uppdaterar rundpoängen.
+     * Om någon tärning visar 1, förloras alla rundpoäng.
+     */
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
     public function roll(SessionInterface $session): Response
     {
@@ -145,46 +168,43 @@ class DiceGameController extends AbstractController
             $session->set("pig_dicehand", $hand);
         }
 
-        $hand->roll(); // Slå alla tärningar
+        $hand->roll();
 
-        $roundTotal = $session->get("pig_round");
+        $roundTotal = $session->get("pig_round", 0); // Tidigare rundpoäng
         $round = 0;
-        $values = $hand->getValues(); // Hämta tärningsvärden
+        $values = $hand->getValues();
 
         foreach ($values as $value) {
             if ($value === 1) {
-                // Om man får en etta: nollställ rundpoängen
-                $this->addFlash(
-                    'warning',
-                    'You got a 1 and you lost the round points!'
-                );
-                $round = 0;
+                // En etta → hela rundan förlorad
+                $this->addFlash('warning', 'You got a 1 and you lost the round points!');
                 $roundTotal = 0;
+                $round = 0;
                 break;
             }
             $round += $value;
         }
 
+        // Spara uppdaterad rundpoäng
         $session->set("pig_round", $roundTotal + $round);
 
         return $this->redirectToRoute('pig_play');
     }
 
-    // POST-route för att spara rundpoäng till totala poäng
+    /**
+     * POST: Sparar aktuell rundpoäng till totalpoäng och nollställer rundan.
+     */
     #[Route("/game/pig/save", name: "pig_save", methods: ['POST'])]
     public function save(SessionInterface $session): Response
     {
-        $roundTotal = $session->get("pig_round");
-        $gameTotal = $session->get("pig_total");
+        $roundTotal = $session->get("pig_round", 0);
+        $gameTotal = $session->get("pig_total", 0);
 
-        // Nollställ runda och lägg till poäng till total
+        // Spara rundpoängen till totalpoängen
         $session->set("pig_round", 0);
         $session->set("pig_total", $roundTotal + $gameTotal);
 
-        $this->addFlash(
-            'notice',
-            'Your round was saved to the total!'
-        );
+        $this->addFlash('notice', 'Your round was saved to the total!');
 
         return $this->redirectToRoute('pig_play');
     }
