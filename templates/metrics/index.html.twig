@@ -9,7 +9,7 @@
 
     <h3>6C-modellen</h3>
     <ul>
-        <li><strong>Codestyle:</strong> Följer PSR-standarder och läsbarhet.</li>
+        <li><strong>Codestyle:</strong> Följer PSR-standarder(PHP Standard Recommendations) och läsbarhet.</li>
         <li><strong>Coverage:</strong> Hur mycket av koden testas.</li>
         <li><strong>Complexity:</strong> Exempelvis Cyclomatic Complexity i metoder och klasser.</li>
         <li><strong>Cohesion:</strong> Om klasser och metoder har syften som är tydliga.</li>
@@ -46,8 +46,8 @@
         <li>Jag har 7 violations och 2 errors i min kod. Det pekar på att det finns saker som kan förbättras för en mer stabil kod. Mitt mål är att främst fixa errors.</li>
     </ul>
 
-    <p>Bild från PhpMetrics:</p>
-    <img src="{{ asset('build/images/PhpMetrics.png') }}" alt="Phpmetrics cirklar" width="300">
+    <p>Bild från PhpMetrics innan ändringar:</p>
+    <img src="{{ asset('build/images/phpmetrics.png') }}" alt="Phpmetrics cirklar" width="300">
 
     <h3>Scrutinizer</h3>
     <p>Scrutinizer är ett verktyg som analyserar kodens kvalitet, struktur samt testtäckning. Rapporten hjälper dig att identifiera svagheter och bättringsområden i koden.</p>
@@ -103,6 +103,9 @@
     Issues: 5 → 3<br>
     Kodtäckning: 10% → 15%<br>
     Klassrating: Några B och A → alla A</p>
+
+    <p>Bild från PhpMetrics efter ändringar:</p>
+    <img src="{{ asset('build/images/phpmetrics2.png') }}" alt="Phpmetrics cirklar" width="300">
 
     <h3>Diskussion</h3>
     <p>Att arbeta med kodkvalitet aktivt med verktyg som Phpmetrics och Scrutinizer är i mitt tycke effektivt. Jag lyckades snabbt identifiera svagheter i min kod, fokusera på dem och sedan kunna ha mätningar på effekten av mina förbättringar. En stor fördel är att dessa verktyg tar fram en reflektion kring kodens struktur och testbarhet. Men en nackdel med verktyg som dessa kan vara att man blir för fokuserad på poäng, och glömmer bort användbarhet eller enkelhet. Förutom stödverktyg man kan installera är löpande kodgranskningar, gemensamma kodstandarder och kodförbättringar bra för att säkerställa ren och väl fungerande kod.</p>

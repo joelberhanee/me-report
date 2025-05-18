@@ -43,7 +43,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardGraphic",
             "name": "CardGraphic",
-            "summary": "Klassen\u0020skapar\u0020ett\u0020spelkort\u0020med\u0020f\u00E4rgklass\u0020r\u00F6d\u0020eller\u0020svart\u0020samt\u0020grafisk\u0020symbol\u0020beroende\u0020p\u00E5\u0020kortets\u0020f\u00E4rg.",
+            "summary": "Klassen\u0020skapar\u0020ett\u0020spelkort\u0020med\u0020f\u00E4rgklass\u0020r\u00F6d\u0020eller\u0020svart\u0020och\u0020grafisk\u0020symbol\u0020beroende\u0020p\u00E5\u0020kortets\u0020f\u00E4rg.",
             "url": "classes/App-Card-CardGraphic.html"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003A__construct\u0028\u0029",
@@ -283,47 +283,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Startsida\u0020f\u00F6r\u0020Pig\u002Dspelet.\u0020Inneh\u00E5ller\u0020info\u0020och\u0020startl\u00E4nk.",
             "url": "classes/App-Controller-DiceGameController.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AtestRollDice\u0028\u0029",
             "name": "testRollDice",
-            "summary": "",
+            "summary": "Test\u002Droute\u003A\u0020Sl\u00E5r\u0020en\u0020enkel\u0020standardt\u00E4rning\u0020\u00281\u20136\u0029\u0020och\u0020visar\u0020resultatet.",
             "url": "classes/App-Controller-DiceGameController.html#method_testRollDice"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AtestRollDices\u0028\u0029",
             "name": "testRollDices",
-            "summary": "",
+            "summary": "Test\u002Droute\u003A\u0020Sl\u00E5r\u0020ett\u0020valfritt\u0020antal\u0020grafiska\u0020t\u00E4rningar\u0020och\u0020visar\u0020dem.",
             "url": "classes/App-Controller-DiceGameController.html#method_testRollDices"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AtestDiceHand\u0028\u0029",
             "name": "testDiceHand",
-            "summary": "",
+            "summary": "Test\u002Droute\u003A\u0020Skapar\u0020ett\u0020DiceHand\u002Dobjekt\u0020med\u0020blandade\u0020t\u00E4rningar\u0020\u0028grafiska\u0020och\u0020standard\u0029\noch\u0020visar\u0020t\u00E4rningsresultaten.",
             "url": "classes/App-Controller-DiceGameController.html#method_testDiceHand"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003Ainit\u0028\u0029",
             "name": "init",
-            "summary": "",
+            "summary": "GET\u003A\u0020Visar\u0020ett\u0020formul\u00E4r\u0020d\u00E4r\u0020spelaren\u0020kan\u0020v\u00E4lja\u0020antal\u0020t\u00E4rningar\u0020inf\u00F6r\u0020spelets\u0020start.",
             "url": "classes/App-Controller-DiceGameController.html#method_init"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003AinitCallback\u0028\u0029",
             "name": "initCallback",
-            "summary": "",
+            "summary": "POST\u003A\u0020Initierar\u0020spelet\u0020Pig\u0020med\u0020det\u0020antal\u0020t\u00E4rningar\u0020som\u0020anv\u00E4ndaren\u0020valt.",
             "url": "classes/App-Controller-DiceGameController.html#method_initCallback"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003Aplay\u0028\u0029",
             "name": "play",
-            "summary": "",
+            "summary": "GET\u003A\u0020Visar\u0020spelvyn\u0020med\u0020aktuell\u0020DiceHand,\u0020rundpo\u00E4ng\u0020och\u0020totalpo\u00E4ng.",
             "url": "classes/App-Controller-DiceGameController.html#method_play"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003Aroll\u0028\u0029",
             "name": "roll",
-            "summary": "",
+            "summary": "POST\u003A\u0020Sl\u00E5r\u0020om\u0020alla\u0020t\u00E4rningar\u0020och\u0020uppdaterar\u0020rundpo\u00E4ngen.",
             "url": "classes/App-Controller-DiceGameController.html#method_roll"
         },                {
             "fqsen": "\\App\\Controller\\DiceGameController\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "POST\u003A\u0020Sparar\u0020aktuell\u0020rundpo\u00E4ng\u0020till\u0020totalpo\u00E4ng\u0020och\u0020nollst\u00E4ller\u0020rundan.",
             "url": "classes/App-Controller-DiceGameController.html#method_save"
         },                {
             "fqsen": "\\App\\Controller\\HomeControllerTwig",
