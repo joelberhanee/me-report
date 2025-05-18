@@ -70,15 +70,11 @@ class TwentyOneController extends AbstractController
     #[Route('/game/stay', name: 'game_stay')]
     public function stay(SessionInterface $session, GameTwentyOne $game): Response
     {
-        // GameTwentyOne::stay returnerar en sträng eller assoc array
-        $result = $game->stay($session);
+        // stay() returnerar enbart ett meddelande (sträng)
+        $message = $game->stay($session);
     
-        if (is_array($result)) {
-            $type = $result['type'] ?? 'warning';
-            $message = $result['message'] ?? 'Spelets status är okänd.';
-            $this->addFlash($type, $message);
-        } else {
-            $this->addFlash('warning', (string) $result ?: 'Spelets status är okänd.');
+        if (!empty($message)) {
+            $this->addFlash('warning', $message);
         }
     
         return $this->redirectToRoute('game_play');
