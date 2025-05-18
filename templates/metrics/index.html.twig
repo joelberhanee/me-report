@@ -1,118 +1,109 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Metrics{% endblock %}
+{% block title %}Metrics Analys{% endblock %}
 
 {% block body %}
-    <h1>Metrics-analys</h1>
+<h1>Metrics-analys</h1>
 
-    <section>
-        <h2>Introduktion – 6C-modellen</h2>
-        <p>
-            I denna analys använder jag 6C-modellen som består av:
-        </p>
-        <ul>
-            <li><strong>Codestyle:</strong> Följer PSR-standarder och läsbarhet.</li>
-            <li><strong>Coverage:</strong> Hur stor del av koden testas.</li>
-            <li><strong>Complexity:</strong> (T.ex. Cyclomatic Complexity) i metoder och klasser.</li>
-            <li><strong>Cohesion:</strong> Om klasser/metoder har tydliga syften.</li>
-            <li><strong>Coupling:</strong> Hur beroende klasser är av varandra.</li>
-            <li><strong>CRAP:</strong> Kombination av komplexitet och testtäckning, ger varningsvärde.</li>
-        </ul>
-    </section>
+<h2>6C-modellen</h2>
+<ul>
+  <li>Codestyle, Coverage, Complexity, Cohesion, Coupling och CRAP</li>
+</ul>
 
-    <section>
-        <h2>Phpmetrics</h2>
-        <p>
-            Analysen visade <strong>1 195 rader kod</strong> fördelade över <strong>27 klasser</strong>. Några identifierade problem:
-        </p>
-        <ul>
-            <li><strong>CardGraphic</strong> hade hög komplexitet (> 5) och låg sammanhållning (cohesion).</li>
-            <li><strong>DeckOfCards</strong> var beroende av både <code>Card</code> och <code>CardGraphic</code>, vilket ökade koppling.</li>
-            <li><strong>TwentyOneController</strong> hade många ansvar och låg testtäckning.</li>
-        </ul>
-        <p>
-            Bild från PhpMetrics:
-        </p>
-        <img src="{{ asset('build/images/PhpMetrics.png') }}" alt="Phpmetrics cirklar" width="600">
-        <p>
-            Rödare cirklar visar komplexare kod. Här syns att några klasser behöver brytas upp eller förenklas.
-        </p>
-    </section>
-    
-    <section>
-        <h2>ClassRank</h2>
-        <p>
-            ClassRank liknar Googles PageRank – en indikator på viktiga knutpunkter i projektet. Höga värden betyder att en klass är central.
-        </p>
-        <ul>
-            <li><code>App\Card\Card</code>: 0.34</li>
-            <li><code>App\Dice\Dice</code>: 0.13</li>
-            <li><code>App\Controller\TwentyOneController</code>: 0.02</li>
-        </ul>
-    </section>
-    
-    <section>
-        <h2>Scrutinizer</h2>
-        <p>
-            Scrutinizer visar både kodkvalitet och testtäckning. Resultat:
-        </p>
-        <ul>
-            <li><strong>Kvalitetsbetyg:</strong> 9.93/10</li>
-            <li><strong>Issues:</strong> 5 (2 stilrelaterade, 3 komplexitet/test)</li>
-            <li><strong>Kodtäckning:</strong> 72%</li>
-        </ul>
-        <p>
-            <strong>Badges:</strong>
-        </p>
-        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/quality-score.png?b=main" alt="Quality Score">
-        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/coverage.png?b=main" alt="Code Coverage">
-        <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/build.png?b=main" alt="Build Status">
-    </section>
-    
-    <section>
-        <h2>Förbättringar</h2>
-        <ol>
-            <li><strong>Dela upp CardGraphic:</strong> Flytta all presentation till en dedikerad serviceklass <code>CardRenderService</code>.</li>
-            <li><strong>Testa fler controllers:</strong> Lägg till PHPUnit-tester för <code>LibraryController</code> och <code>MetricsController</code>.</li>
-            <li><strong>Skapa interface för kort:</strong> Inför ett <code>CardInterface</code> så att <code>DeckOfCards</code> kan använda polymorfism, minska beroenden.</li>
-        </ol>
-        <p>
-            Förväntad effekt:
-            <ul>
-                <li>Minskad cyklomatisk komplexitet</li>
-                <li>Färre varningar i Scrutinizer</li>
-                <li>Bättre testtäckning och CRAP-index</li>
-            </ul>
-        </p>
-    </section>
-    
-    <section>
-        <h2>Resultat efter förbättringar</h2>
-        <p><strong>PhpMetrics – före och efter</strong></p>
-        <ul>
-            <li><strong>CardGraphic:</strong> Complex 6.2 → 3.4</li>
-            <li><strong>CRAP i TwentyOneController:</strong> 22 → 11</li>
-            <li><strong>Antal metoder >10 rader:</strong> 6 → 2</li>
-        </ul>
-    
-        <p><strong>Scrutinizer – före och efter</strong></p>
-        <ul>
-            <li><strong>Kvalitet:</strong> 9.93 → 10.0</li>
-            <li><strong>Kodtäckning:</strong> 11% → </li>
-            <li><strong>Issues:</strong> 5 → 1</li>
-        </ul>
-    </section>
-    
-    <section>
-        <h2>Diskussion</h2>
-        <p>
-            Att arbeta med kodkvalitet aktivt med verktyg som Phpmetrics och Scrutinizer är mycket effektivt. Jag kunde snabbt hitta svagheter i min kod, fokusera på dem och mäta effekten av mina förbättringar.
-        </p>
-        <p>
-            En fördel är att dessa verktyg främjar reflektion kring kodens struktur och testbarhet. En nackdel kan vara att man blir för fokuserad på poäng, och glömmer faktisk användbarhet eller enkelhet.
-        </p>
-        <p>
-            Jag ser potential i att integrera analyser i CI/CD-flödet för att få kontinuerlig feedback på kvalitet – något jag planerar att göra i framtida projekt.
-        </p>
-    </section>
-    {% endblock %}
+<h2>Phpmetrics</h2>
+<p>Phpmetrics analyserar koden och mäter underhållbarhet, komplexitet och struktur. Min kodbas är ca 1 195 rader och 27 klasser. Jag har valt att fokusera på följande:</p>
+
+<h3>Maintainability / complexity och stora klasser</h3>
+<p>Vissa klasser har hög cyclomatic complexity och låg maintainability index. Klassens färg i cirkeldiagrammet avslöjar underhållbarheten visuellt. Grön, gul och rödaktiga cirklar.</p>
+
+<p><strong>App\Game\GameTwentyOne</strong> Complexity: 9 / Maintainability Index: 34.25<br>
+<strong>App\Controller\DiceGameController</strong> Complexity: 11 / Maintainability Index: 31.95</p>
+
+<p>Detta är lågt maintainability index och högt komplexitet. Under 50 i maintainability index betyder att koden kan vara svår att underhålla. Dessa klasser är exempel på det och bör bearbetas enligt PHPmetrics.</p>
+
+<h3>ClassRank</h3>
+<p>Card har ett högt ClassRank på 0,33, det innebär att det är en viktig klass i systemet och bör hållas strukturerad.<br>
+GameTwentyOne har låg MI men hög interaktion, ett problem med koden kan vara risken för att sprida buggar.</p>
+
+<p>Höga värden betyder att en klass är central.</p>
+
+<ul>
+  <li>App\Card\Card: 0,34</li>
+  <li>App\Dice\Dice: 0,13</li>
+  <li>App\Controller\TwentyOneController: 0,02</li>
+</ul>
+
+<h3>Violations</h3>
+<p>Jag har 7 violations och 2 errors i min kod. Det pekar på att det finns saker som kan förbättras för en mer stabil kod. Mitt mål är att främst fixa errors.</p>
+
+<p><em>Bild från PhpMetrics:</em></p>
+<img src="{{ asset('build/images/PhpMetrics.png') }}" alt="Phpmetrics cirklar" width="300">
+
+
+<p>Phpmetrics Maintainability / complexity cirklar</p>
+
+<h2>Scrutinizer</h2>
+<p>Scrutinizer är ett verktyg som analyserar kodens kvalitet, struktur samt testtäckning. Rapporten hjälper dig att identifiera svagheter och bättringsområden i koden.</p>
+
+<ul>
+  <li>Kvalitetsbetyg: 9,93/10 - Visar att min kod håller en mycket hög standard.</li>
+  <li>Issues: 5 stycken - Två av dessa ligger i mina egna klasser/controllers och handlar komplexitet samt kodstruktur. Övriga handlar om mindre problem med kodstilen.</li>
+  <li>Kodtäckning (Coverage): 10% - En låg nivå som visar att jag borde skriva fler enhetstester för stabilare kod men som också minskar risken för fel vid framtida ändringar.</li>
+  <li>Klassbetyg: De flesta av mina klasser har A i betyg, vilket visar på bra struktur och läsbarhet. Några ligger på B nivå, alltså finns det förbättringspotential men det är mindre farliga brister.</li>
+  <li>Build Status: Visar ifall projektet går igenom alla kontroller och analyser utan att krascha, det blir en form av bekräftelse ifall koden är körbar och fungerande.</li>
+</ul>
+
+<h3>Flaskhalsar och förbättringspotential</h3>
+<ul>
+  <li>Komplexitet i vissa klasser: Två av issuesen pekar på att vissa metoder eller klasser har hög komplexitet, vilket kan försvåra underhållningen samt vidareutvecklingen.</li>
+  <li>Testtäckning: Med endast 10% i täckning finns det stor risk för fel vid framtida ändringar. Här har jag en möjlighet att höja kvaliteten genom att göra fler enhetstester.</li>
+  <li>Stil problem: Några små stilproblem finns kvar i koden, vilket kan påverka läsbarhet och konsekvent kod.</li>
+</ul>
+
+<h3>Badges</h3>
+<p>
+  <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/quality-score.png?b=main" alt="Quality Score">
+  <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/coverage.png?b=main" alt="Code Coverage">
+  <img src="https://scrutinizer-ci.com/g/joelberhanee/me-report/badges/build.png?b=main" alt="Build Status">
+</p>
+
+<h2>Koppling till 6C-modellen</h2>
+<ul>
+  <li><strong>Clean:</strong> Kvalitetsbetyget 9,93/10 visar att koden överlag är ren, men några issues bör åtgärdas för ökad likformighet.</li>
+  <li><strong>Concise:</strong> Mina ApiControllerJson, GameTwentyOne och DiceGameController har hög komplexitet och låg Maintainability Index, de klasserna är för stora och borde kanske brytas ned.</li>
+  <li><strong>Coupled:</strong> GameTwentyOne är ganska stor (hög ClassRank) men har låg när det gäller underhållning, därför är den känslig för ändringar och pekar på för hög coupling.</li>
+  <li><strong>Complex:</strong> Cyclomatic complexity på 11–13 och låg maintainability (runt 30) visar att några koder är för komplexa och måste göras enklare.</li>
+  <li><strong>Covered:</strong> Testtäckningen på 10 % är låg och bör bättras för att undvika framtida möjliga problem.</li>
+  <li><strong>CRAP:</strong> GameTwentyOne har en CRAP-score över 90, vilket ger en hög risk vid ändringar. Omstrukturering av koden kan behövas samt tester.</li>
+</ul>
+
+<h2>Förbättringar</h2>
+<ul>
+  <li>Rätta till problem Scrutinizer tar upp om kodstil samt hur koden är uppbyggd. Lägga till kommentarer på koder som är i stort behov av det samt ta bort kod som inte fyller en funktion, det gör koden mindre. Det kommer göra koden främst enklare att underhålla men även lättare att läsa och bättre. Detta kommer troligtvis leda till högre kvalitetspoäng och färre fel.</li>
+  <li>Stora metoder som ApiControllerJson.php ska delas upp i mindre delar om möjligt. Koden kommer genom detta bli mindre svår och även enklare att underhålla samt korrigera. Det bör även sänka komplexiteten på koden.</li>
+  <li>Fler enhetstester till koderna behövs med, för just testas endast 10%. Det kommer ge koden en stabilitet och säkerhet. Dice klasserna exempelvis.</li>
+</ul>
+
+<h2>Resultat efter förbättringar</h2>
+<ul>
+  <li><strong>PhpMetrics:</strong>
+    <ul>
+      <li>Maintainability Index: Flera under 70 → alla ≥ 70</li>
+      <li>Cyclomatic Complexity: 13 → 11</li>
+      <li>Violations: 7 → 5</li>
+    </ul>
+  </li>
+  <li><strong>Scrutinizer:</strong>
+    <ul>
+      <li>Kvalitetspoäng: 9,93 → 10,0</li>
+      <li>Issues: 5 → 3</li>
+      <li>Kodtäckning: 10% → 15%</li>
+      <li>Klassrating: Några B och A → alla A</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Diskussion</h2>
+<p>Att arbeta med kodkvalitet aktivt med verktyg som Phpmetrics och Scrutinizer är i mitt tycke effektivt. Jag lyckades snabbt identifiera svagheter i min kod, fokusera på dem och sedan kunna ha mätningar på effekten av mina förbättringar. En stor fördel är att dessa verktyg tar fram en reflektion kring kodens struktur och testbarhet. Men en nackdel med verktyg som dessa kan vara att man blir för fokuserad på poäng, vilket inte alltid speglar verklig kodkvalitet fullt ut. Därför måste man kombinera dessa analyser med manuell kodgranskning och feedback från kollegor.</p>
+
+{% endblock %}
