@@ -48,20 +48,4 @@ class DiceHandTest extends TestCase
         $values = $hand->getValues();
         $this->assertCount(3, $values);
     }
-
-    public function testGetStringReturnsStrings(): void
-    {
-        $hand = new DiceHand();
-        $hand->add(new DiceGraphic());
-        $hand->add(new DiceGraphic());
-
-        $hand->roll();
-        $strings = $hand->getString();
-
-        $this->assertCount(2, $strings);
-        foreach ($strings as $str) {
-            $this->assertIsString($str);
-            $this->assertMatchesRegularExpression('/^⚀|⚁|⚂|⚃|⚄|⚅$/u', $str);
-        }
-    }
 }

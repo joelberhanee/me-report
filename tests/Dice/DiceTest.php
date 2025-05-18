@@ -10,7 +10,7 @@ class DiceTest extends TestCase
     public function testDiceStartsWithNullValue(): void
     {
         $dice = new Dice();
-        $this->assertNull($dice->getValue(), "Initial value should be null");
+        $this->assertNull($dice->getValue());
     }
 
     public function testRollReturnsValueBetween1And6(): void
@@ -25,15 +25,15 @@ class DiceTest extends TestCase
     {
         $dice = new Dice();
         $rolled = $dice->roll();
-        $this->assertSame($rolled, $dice->getValue(), "Value after roll should match getValue()");
+        $this->assertSame($rolled, $dice->getValue());
     }
 
     public function testGetAsStringBeforeAndAfterRoll(): void
     {
         $dice = new Dice();
-        $this->assertSame("[ ]", $dice->getAsString(), "Initial string should be '[ ]'");
+        $this->assertSame("[ ]", $dice->getAsString());
         
         $value = $dice->roll();
-        $this->assertSame("[$value]", $dice->getAsString(), "String should reflect rolled value");
+        $this->assertSame("[$value]", $dice->getAsString());
     }
 }
