@@ -3,7 +3,7 @@
 namespace App\Card;
 
 /**
- * Klassen skapar ett spelkort med färgklass röd eller svart samt grafisk symbol beroende på kortets färg.
+ * Klassen skapar ett spelkort med färgklass röd eller svart och grafisk symbol beroende på kortets färg.
  */
 class CardGraphic extends Card
 {

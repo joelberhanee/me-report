@@ -11,14 +11,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DiceGameController extends AbstractController
+class DiceGameControllerTest extends AbstractController
 {
+    /**
+     * Start-/landningssidan för Pig-spelet.
+     *
+     * @return Response
+     */
     #[Route("/game/pig", name: "pig_start")]
     public function home(): Response
     {
         return $this->render('pig/home.html.twig');
     }
 
+    /**
+     * Testar att rulla en enkel tärning.
+     *
+     * @return Response
+     */
     #[Route("/game/pig/test/roll", name: "test_roll_dice")]
     public function testRollDice(): Response
     {
@@ -32,6 +42,12 @@ class DiceGameController extends AbstractController
         return $this->render('pig/test/roll.html.twig', $data);
     }
 
+    /**
+     * Testar att rulla ett antal grafiska tärningar.
+     *
+     * @param int $num Antal tärningar att rulla (max 99)
+     * @return Response
+     */
     #[Route("/game/pig/test/roll/{num<\d+>}", name: "test_roll_num_dices")]
     public function testRollDices(int $num): Response
     {
@@ -41,7 +57,6 @@ class DiceGameController extends AbstractController
 
         $diceRoll = [];
         for ($i = 1; $i <= $num; $i++) {
-
             $die = new DiceGraphic();
             $die->roll();
             $diceRoll[] = $die->getAsString();
@@ -55,6 +70,12 @@ class DiceGameController extends AbstractController
         return $this->render('pig/test/roll_many.html.twig', $data);
     }
 
+    /**
+     * Testar en DiceHand med både vanliga och grafiska tärningar.
+     *
+     * @param int $num Antal tärningar (max 99)
+     * @return Response
+     */
     #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]
     public function testDiceHand(int $num): Response
     {
@@ -63,6 +84,8 @@ class DiceGameController extends AbstractController
         }
 
         $hand = new DiceHand();
+
+        // Lägg till alternerande Dice och DiceGraphic
         for ($i = 1; $i <= $num; $i++) {
             if ($i % 2 === 1) {
                 $hand->add(new DiceGraphic());
@@ -81,12 +104,24 @@ class DiceGameController extends AbstractController
         return $this->render('pig/test/dicehand.html.twig', $data);
     }
 
+    /**
+     * Visar initieringsformuläret för Pig-spelet.
+     *
+     * @return Response
+     */
     #[Route("/game/pig/init", name: "pig_init_get", methods: ['GET'])]
     public function init(): Response
     {
         return $this->render('pig/init.html.twig');
     }
 
+    /**
+     * Tar emot formulärdata och initierar spel i sessionen.
+     *
+     * @param Request $request
+     * @param SessionInterface $session
+     * @return Response
+     */
     #[Route("/game/pig/init", name: "pig_init_post", methods: ['POST'])]
     public function initCallback(Request $request, SessionInterface $session): Response
     {
@@ -98,6 +133,7 @@ class DiceGameController extends AbstractController
         }
         $hand->roll();
 
+        // Initiera sessionsdata
         $session->set("pig_dicehand", $hand);
         $session->set("pig_dices", $numDice);
         $session->set("pig_round", 0);
@@ -106,6 +142,12 @@ class DiceGameController extends AbstractController
         return $this->redirectToRoute('pig_play');
     }
 
+    /**
+     * Visar spelets pågående status (antal poäng och senaste kast).
+     *
+     * @param SessionInterface $session
+     * @return Response
+     */
     #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
     public function play(SessionInterface $session): Response
     {
@@ -126,13 +168,18 @@ class DiceGameController extends AbstractController
         return $this->render('pig/play.html.twig', $data);
     }
 
+    /**
+     * Rullar tärningarna i spelet och uppdaterar rundpoäng.
+     *
+     * @param SessionInterface $session
+     * @return Response
+     */
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
     public function roll(SessionInterface $session): Response
     {
         $hand = $session->get("pig_dicehand");
 
         if (!$hand instanceof DiceHand) {
-
             $hand = new DiceHand();
             $session->set("pig_dicehand", $hand);
         }
@@ -143,6 +190,7 @@ class DiceGameController extends AbstractController
         $round = 0;
         $values = $hand->getValues();
 
+        // Om någon tärning är 1: runda förlorad
         foreach ($values as $value) {
             if ($value === 1) {
                 $this->addFlash(
@@ -161,6 +209,12 @@ class DiceGameController extends AbstractController
         return $this->redirectToRoute('pig_play');
     }
 
+    /**
+     * Sparar rundpoäng till totalpoäng och nollställer rundan.
+     *
+     * @param SessionInterface $session
+     * @return Response
+     */
     #[Route("/game/pig/save", name: "pig_save", methods: ['POST'])]
     public function save(SessionInterface $session): Response
     {

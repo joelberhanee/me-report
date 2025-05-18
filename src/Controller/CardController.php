@@ -112,7 +112,7 @@ class CardController extends AbstractController
         }
 
         $drawn = $deck->draw($number); // Dra antal kort
-        $session->set('deck', $deck); // Uppdatera kortlek och kvarvarande antal
+        $session->set('deck', $deck); // Uppdatera kortlek och antal som är kvar
         $session->set('cards_left', $deck->cardsLeft());
 
         // Lägg till alla dragna kort i handen
