@@ -5,7 +5,6 @@ namespace App\Tests\Dice;
 use PHPUnit\Framework\TestCase;
 use App\Dice\DiceHand;
 use App\Dice\Dice;
-use App\Dice\DiceGraphic;
 
 class DiceHandTest extends TestCase
 {
@@ -31,7 +30,10 @@ class DiceHandTest extends TestCase
 
         $hand->roll();
 
-        foreach ($hand->getValues() as $value) {
+        $values = $hand->getValues();
+        $this->assertCount(2, $values);
+        foreach ($values as $value) {
+            $this->assertIsInt($value);
             $this->assertGreaterThanOrEqual(1, $value);
             $this->assertLessThanOrEqual(6, $value);
         }
@@ -47,5 +49,20 @@ class DiceHandTest extends TestCase
 
         $values = $hand->getValues();
         $this->assertCount(3, $values);
+    }
+
+    public function testGetStringReturnsStrings(): void
+    {
+        $hand = new DiceHand();
+        for ($i = 0; $i < 2; $i++) {
+            $hand->add(new Dice());
+        }
+        $hand->roll();
+
+        $strings = $hand->getString();
+        $this->assertCount(2, $strings);
+        foreach ($strings as $str) {
+            $this->assertIsString($str);
+        }
     }
 }
