@@ -446,6 +446,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
         },                {
+            "fqsen": "\\App\\Controller\\ProjApiController",
+            "name": "ProjApiController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiOverview\u0028\u0029",
+            "name": "apiOverview",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiOverview"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AsavePlayer\u0028\u0029",
+            "name": "savePlayer",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_savePlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiPlayer\u0028\u0029",
+            "name": "apiPlayer",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiPlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiDraw\u0028\u0029",
+            "name": "apiDraw",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiStay\u0028\u0029",
+            "name": "apiStay",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiStay"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiStart\u0028\u0029",
+            "name": "apiStart",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiStart"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjApiController\u003A\u003AapiReset\u0028\u0029",
+            "name": "apiReset",
+            "summary": "",
+            "url": "classes/App-Controller-ProjApiController.html#method_apiReset"
+        },                {
             "fqsen": "\\App\\Controller\\ProjController",
             "name": "ProjController",
             "summary": "",
