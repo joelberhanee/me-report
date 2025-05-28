@@ -10,6 +10,18 @@
 
 Detta är ett Symfony-projekt som använder MVC-struktur för att bygga en webbapplikation. Följ stegen nedan för att klona och köra webbplatsen lokalt.
 
+## Om projektet
+
+Detta är ett Symfony-baserat webbprojekt som följer MVC-arkitekturen. Applikationen innehåller både traditionella sidor och ett JSON-API, samt ett kortspel (Blackjack). Projektet är en del av kursen Webbutveckling.
+
+Projektet innehåller bland annat:
+
+- Formulärhantering och sessionshantering
+- Ett Blackjack-spel där spelaren kan spela 1–3 händer samtidigt
+- En API-sektion med POST/GET-routes
+- Täckningstester med PHPUnit
+- Dokumentation och kodkvalitetsgranskning med Scrutinizer, PHPDoc och PhpMetrics
+
 ## Installera och Komma Igång
 
 För att komma igång med projektet, följ dessa steg:
