@@ -1,0 +1,35 @@
+{% extends 'proj_base.html.twig' %}
+
+{% block title %}Blackjack{% endblock %}
+
+{% block body %}
+<div class="info-container">
+    <h1 class="info-title">Välkommen till Blackjack</h1>
+
+    <form action="{{ path('proj_start') }}" method="post" class="bj-form">
+        <label for="name">Spelarnamn:</label>
+        <input type="text" name="name" id="name" value="{{ old_name|default('') }}" required>
+
+        <label for="balance">Startsaldo (kr):</label>
+        <input type="number" name="balance" id="balance" value="{{ old_balance|default('') }}" min="1" required>
+
+        <button type="submit" class="bj-btn bj-btn--draw">Starta spel</button>
+    </form>
+
+    <section>
+        <h2 class="info-subtitle">Spelregler</h2>
+        <ul class="info-list">
+            <li>Spelaren börjar utan kort och drar ett i taget genom att klicka på "Dra kort".</li>
+            <li>Spelaren kan välja att "Stanna" när den är nöjd med sin poängsumma.</li>
+            <li>Målet är att nå en total summa på 21 eller att vara så nära som möjligt utan att överstiga.</li>
+            <li>Ett ess/A är värt 1 eller 11 beroende på situation.</li>
+            <li>Om spelarens summa överstiger 21, förlorar den direkt.</li>
+            <li>När spelaren stannar, drar banken kort tills den når minst 17.</li>
+            <li>Om banken överstiger 21 vinner spelaren.</li>
+            <li>Vid lika poängsumma vinner banken.</li>
+        </ul>
+    </section>
+
+    {{ include('flash.html.twig') }}
+</div>
+{% endblock %}

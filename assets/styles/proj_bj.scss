@@ -1,0 +1,104 @@
+.info-container {
+    max-width: 960px;
+    margin: 3rem auto;
+    background: radial-gradient(circle at top left, #1b1b1b, #0c0c0c);
+    border: 3px solid #c9b037;
+    border-radius: 18px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 0 12px #c9b037aa, inset 0 0 30px #c9b03733;
+    font-family: 'Roboto Slab', serif;
+    text-align: left;
+    line-height: 1.6;
+  }
+  
+  .info-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #c9b037;
+    text-shadow: 0 0 6px #c9b037cc;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.07em;
+    text-align: center;
+  }
+  
+  .info-subtitle {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-top: 2.2rem;
+    margin-bottom: 0.9rem;
+    color: #d4ca6f;
+    border-bottom: 2px solid #d4ca6f55;
+    padding-bottom: 0.2rem;
+  }
+  
+  .info-paragraph {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    color: #f1eec4;
+  }
+  
+  .info-list {
+    list-style-type: square;
+    margin-left: 1.5rem;
+    font-size: 1.1rem;
+    color: #ece7ad;
+  
+    li {
+      margin-bottom: 0.6rem;
+      code {
+        background-color: #292724;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Fira Mono', monospace;
+        font-weight: 600;
+        color: #f2d986;
+      }
+    }
+  }
+  
+  .info-back-link {
+    display: inline-block;
+    margin-top: 3rem;
+    font-weight: 700;
+    color: #c9b037;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+  
+  .btn-start-game {
+    display: inline-block;
+    background-color: #28a728;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 0.8rem 2.5rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-start-game:hover,
+.btn-start-game:focus {
+    background-color: #1f7f1f;
+    outline: none;
+}
+
+.bj-heading {
+  color: white;
+}
+
+.bj-text {
+  color: white;
+}
+

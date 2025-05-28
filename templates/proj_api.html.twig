@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API Sammanställning{% endblock %}
+
+{% block body %}
+    <h1>PROJEKT JSON API</h1>
+    <p>Sammanställning av några JSON routes från mitt projekt:</p>
+
+    <ul>
+        <li>
+            <h2>Spara spelare</h2>
+            <form action="{{ path('proj_save_player') }}" method="POST">
+                <label for="name">Spelarnamn:</label>
+                <input type="text" name="name" id="name" value="{{ old_name|default('') }}" required>
+        
+                <label for="balance">Startsaldo (kr):</label>
+                <input type="number" name="balance" id="balance" value="{{ old_balance|default('') }}" min="1" required>
+        
+                <button type="submit">Starta spel</button>
+            </form>
+        </li>
+
+        <li>
+            <h2><a href="{{ path('api_player') }}">/proj/api/player</a></h2>
+            <p>Visar spelarens namn och saldo.</p>
+        </li>
+
+        <li>
+            <h2>/proj/api/start</h2>
+            <p>Starta ett nytt spel, välj antal händer och insats:</p>
+            <form action="{{ path('api_start') }}" method="POST">
+                <label>Antal händer (1-3):</label><br>
+                <input type="number" name="hands" min="1" max="3" value="1" required><br><br>
+
+                <label>Insats per hand (kr):</label><br>
+                <input type="number" name="bet" min="1" value="10" required><br><br>
+
+                <button type="submit">Starta spel</button>
+            </form>
+        </li>
+
+        <li>
+            <h2>/proj/api/draw</h2>
+            <p>Dra ett kort från kortleken:</p>
+            <form action="{{ path('api_draw') }}" method="POST">
+                <button type="submit">Dra kort</button>
+            </form>
+        </li>
+
+        <li>
+            <h2>/proj/api/stay</h2>
+            <p>Stanna på nuvarande hand:</p>
+            <form action="{{ path('api_stay') }}" method="POST">
+                <button type="submit">Stanna</button>
+            </form>
+        </li>
+
+        <li>
+            <h2>/proj/api/reset</h2>
+            <p>Återställ sessionen och rensa speldata:</p>
+            <form action="{{ path('api_reset') }}" method="POST">
+                <button type="submit">Återställ spelet</button>
+            </form>
+        </li>        
+    </ul>
+{% endblock %}

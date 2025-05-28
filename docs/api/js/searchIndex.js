@@ -446,6 +446,66 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Visar\u0020startsidan\u0020med\u0020formul\u00E4r\u0020f\u00F6r\u0020att\u0020ange\u0020namn\u0020och\u0020saldo.",
+            "url": "classes/App-Controller-ProjController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Adoc\u0028\u0029",
+            "name": "doc",
+            "summary": "Visar\u0020en\u0020\u0022about\u0022\u0020sida\u0020med\u0020information\u0020om\u0020spelet\/projektet.",
+            "url": "classes/App-Controller-ProjController.html#method_doc"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "Tar\u0020emot\u0020POST\u0020fr\u00E5n\u0020formul\u00E4r\u0020med\u0020namn\u0020och\u0020saldo\u0020f\u00F6r\u0020att\u0020starta\u0020spelet.",
+            "url": "classes/App-Controller-ProjController.html#method_start"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AchooseHands\u0028\u0029",
+            "name": "chooseHands",
+            "summary": "Visar\u0020vy\u0020f\u00F6r\u0020att\u0020v\u00E4lja\u0020antal\u0020h\u00E4nder\u0020att\u0020spela\u0020\u00281\u002D3\u0029.",
+            "url": "classes/App-Controller-ProjController.html#method_chooseHands"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AsetHands\u0028\u0029",
+            "name": "setHands",
+            "summary": "Tar\u0020emot\u0020POST\u0020med\u0020valt\u0020antal\u0020h\u00E4nder,\u0020validerar\u0020att\u0020det\u0020\u00E4r\u0020mellan\u00201\u0020och\u00203.",
+            "url": "classes/App-Controller-ProjController.html#method_setHands"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Abet\u0028\u0029",
+            "name": "bet",
+            "summary": "Visar\u0020insatsformul\u00E4r\u0020d\u00E4r\u0020spelaren\u0020kan\u0020l\u00E4gga\u0020sin\u0020satsning\u0020per\u0020hand.",
+            "url": "classes/App-Controller-ProjController.html#method_bet"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AplaceBet\u0028\u0029",
+            "name": "placeBet",
+            "summary": "Tar\u0020emot\u0020insats\u0020fr\u00E5n\u0020formul\u00E4ret\u0020och\u0020validerar\u0020den.",
+            "url": "classes/App-Controller-ProjController.html#method_placeBet"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "Visar\u0020sj\u00E4lva\u0020spelsidan\u0020med\u0020spelarens\u0020h\u00E4nder,\u0020bankens\u0020kort\u0020och\u0020status.",
+            "url": "classes/App-Controller-ProjController.html#method_play"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Adraw\u0028\u0029",
+            "name": "draw",
+            "summary": "Hanterar\u0020dragning\u0020av\u0020kort\u0020p\u00E5\u0020den\u0020aktiva\u0020handen.",
+            "url": "classes/App-Controller-ProjController.html#method_draw"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Astay\u0028\u0029",
+            "name": "stay",
+            "summary": "Hanterar\u0020att\u0020spelaren\u0020v\u00E4ljer\u0020att\u0020stanna\u0020p\u00E5\u0020aktiv\u0020hand.",
+            "url": "classes/App-Controller-ProjController.html#method_stay"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
+            "summary": "Rensar\u0020hela\u0020sessionen\u0020och\u0020skickar\u0020tillbaka\u0020till\u0020startsidan.",
+            "url": "classes/App-Controller-ProjController.html#method_reset"
+        },                {
             "fqsen": "\\App\\Controller\\ReportControllerTwig",
             "name": "ReportControllerTwig",
             "summary": "",
@@ -720,6 +780,51 @@ Search.appendIndex(
             "name": "value",
             "summary": "",
             "url": "classes/App-Entity-Product.html#property_value"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj",
+            "name": "GameProj",
+            "summary": "",
+            "url": "classes/App-Game-GameProj.html"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "Startar\u0020ett\u0020nytt\u0020spel.",
+            "url": "classes/App-Game-GameProj.html#method_start"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003AdrawCardsToHand\u0028\u0029",
+            "name": "drawCardsToHand",
+            "summary": "Hj\u00E4lpmetod\u0020f\u00F6r\u0020att\u0020dra\u0020ett\u0020antal\u0020kort\u0020fr\u00E5n\u0020leken\u0020till\u0020en\u0020given\u0020hand.",
+            "url": "classes/App-Game-GameProj.html#method_drawCardsToHand"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003Adraw\u0028\u0029",
+            "name": "draw",
+            "summary": "Dra\u0020ett\u0020kort\u0020till\u0020den\u0020aktiva\u0020handen.",
+            "url": "classes/App-Game-GameProj.html#method_draw"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003Astay\u0028\u0029",
+            "name": "stay",
+            "summary": "Spelaren\u0020v\u00E4ljer\u0020att\u0020stanna\u0020p\u00E5\u0020aktiv\u0020hand.",
+            "url": "classes/App-Game-GameProj.html#method_stay"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003AadvanceHand\u0028\u0029",
+            "name": "advanceHand",
+            "summary": "Flytta\u0020till\u0020n\u00E4sta\u0020hand\u0020i\u0020ordningen.",
+            "url": "classes/App-Game-GameProj.html#method_advanceHand"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003AbankPlay\u0028\u0029",
+            "name": "bankPlay",
+            "summary": "Bankens\u0020spel.",
+            "url": "classes/App-Game-GameProj.html#method_bankPlay"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003AcalculateHandSum\u0028\u0029",
+            "name": "calculateHandSum",
+            "summary": "Ber\u00E4knar\u0020summan\u0020av\u0020korten\u0020i\u0020en\u0020hand.",
+            "url": "classes/App-Game-GameProj.html#method_calculateHandSum"
+        },                {
+            "fqsen": "\\App\\Game\\GameProj\u003A\u003AevaluateResults\u0028\u0029",
+            "name": "evaluateResults",
+            "summary": "Utv\u00E4rderar\u0020slutresultatet\u0020efter\u0020bankens\u0020tur.",
+            "url": "classes/App-Game-GameProj.html#method_evaluateResults"
         },                {
             "fqsen": "\\App\\Game\\GameTwentyOne",
             "name": "GameTwentyOne",

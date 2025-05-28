@@ -1,0 +1,207 @@
+/* Bordet */
+.bj-table {
+    background: radial-gradient(circle, #004400 0%, #002200 90%);
+    border: 4px solid #ffd700;
+    border-radius: 22px;
+    box-shadow: 0 0 25px #ffd700cc, inset 0 0 35px #2a7a2aaa;
+    min-width: 960px;
+    margin: 3rem auto;
+    padding: 3rem 4rem;
+    color: #ffd700;
+    font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titel (vit text) */
+.bj-table__title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    color: #fff;
+}
+
+/* Spelarinformation */
+.bj-player-info p {
+    margin: 0.3rem 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.bj-player-info h2 {
+    color: #fff;
+}
+
+/* Händer */
+.bj-hand {
+    border: 2px solid #bbb844;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 2.5rem;
+}
+.bj-hand--player { margin-bottom: 3rem; }
+.bj-hand--bank { margin-top: 1rem; }
+
+/* Handrubriker (vit text) */
+.bj-hand__header {
+    font-size: 1.8rem;
+    margin-bottom: 1.3rem;
+    color: #fff;
+}
+
+/* Container för korten */
+.bj-hand__cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.3rem;
+}
+
+/* Kortdesign (mindre text) */
+.bj-card {
+    background: #fff9dd;
+    border: 2.5px solid #222;
+    border-radius: 10px;
+    width: 85px;
+    height: 130px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.75);
+    color: #222;
+    font-weight: 800;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.25s ease;
+    cursor: default;
+}
+
+/* Kortens färger */
+.bj-card--spades,
+.bj-card--clubs { color: #1a1a1a; }
+.bj-card--hearts,
+.bj-card--diamonds { color: #c82323; }
+
+/* Hover-effekt */
+.bj-card:hover {
+    transform: translateY(-12px) scale(1.12);
+    box-shadow: 0 0 25px #ffd700cc;
+}
+
+/* Summa för hand */
+.bj-hand__sum {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+}
+
+/* Kontrollknappar */
+.bj-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Kontrollknappar - länkar */
+.bj-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding: 1rem 3.2rem;
+    border-radius: 35px;
+    border: 3.5px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #222;
+    box-shadow: 0 0 13px #222;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Dra kort-knapp */
+.bj-btn--draw {
+    background: #28a728;
+    border-color: #35d335;
+    color: #0a350a;
+}
+.bj-btn--draw:hover,
+.bj-btn--draw:focus {
+    background: #35d335;
+    box-shadow: 0 0 30px #35d335;
+}
+
+/* Stanna-knapp */
+.bj-btn--stay {
+    background: #ffb700;
+    border-color: #ffd700;
+    color: #664c00;
+}
+.bj-btn--stay:hover,
+.bj-btn--stay:focus {
+    background: #ffd700;
+    box-shadow: 0 0 30px #ffd700;
+}
+
+/* Statusruta (vit text) */
+.bj-status {
+    padding: 1.8rem 2.5rem;
+    margin: 2rem;
+    border: 3px solid #ffd700;
+    border-radius: 25px;
+    background: radial-gradient(circle, #fff9a6, #ffd700cc);
+    color: #664c00;
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-shadow: 0 0 16px #ccac00;
+    text-align: center;
+}
+
+/* Spela igen-knapp */
+.bj-btn--reset {
+    background: #ffd700;
+    border-color: #e6c200;
+    color: #664c00;
+    padding: 1rem 3.5rem;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.bj-btn--reset:hover,
+.bj-btn--reset:focus {
+    transform: translateY(-12px) scale(1.12);
+    box-shadow: 0 0 25px #ffd700cc;
+}
+
+/* Aktiv hand */
+.active-hand {
+    border-color: #ffd700;
+    box-shadow: 0 0 25px #ffd700cc, inset 0 0 35px #ffd700cc;
+    background: rgba(255, 215, 0, 0.1);
+    transform: scale(1.04);
+}
+
+/* Bankens dolda kort */
+.bj-card--hidden {
+    width: 85px;
+    height: 130px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #444 0%, #111 100%);
+    box-shadow: inset 0 0 8px #000, 0 3px 8px rgba(0,0,0,0.75);
+    color: #ffd700;
+    font-weight: 900;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    text-shadow: 0 0 8px #ffd700cc;
+    border: 2.5px solid #222;
+    transition: transform 0.25s ease;
+}
+
+.bj-card--hidden:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 0 20px #ffd700cc;
+}

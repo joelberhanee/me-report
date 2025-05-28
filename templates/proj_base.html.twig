@@ -1,0 +1,38 @@
+{# templates/base/proj_base.html.twig #}
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Proj{% endblock %}</title>
+    <link rel="icon" href="{{ asset('build/images/glider.svg') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+
+<body class="proj-body">
+    <nav class="proj-nav">
+        <ul class="proj-nav-list">
+            <li><a href="{{ path('home') }}" class="proj-link">Home</a></li>
+            <li><a href="{{ path('proj_index') }}" class="proj-link">Start</a></li>
+            <li><a href="{{ path('proj_about') }}" class="proj-link">Om</a></li>
+            <li><a href="{{ path('proj_play') }}" class="proj-link">Spela</a></li>
+            <li><a href="{{ path('proj_api') }}" class="proj-link">Api</a></li>
+        </ul>
+    </nav>
+
+        {% block body %}{% endblock %}
+
+    <footer class="proj-footer">
+        <div class="proj-footer-content">
+            <p class="proj-footer-text">© 2025 Joel Berhane | All rights reserved</p>
+            <p><a href="https://github.com/joelberhanee" class="proj-footer-link">GitHub Profile</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'proj_base.html.twig' %}
+
+{% block title %}Satsa - Blackjack{% endblock %}
+
+{% block body %}
+<div class="info-container">
+    <h1 class="bj-heading">Hej {{ player_name }}, gör din satsning</h1>
+
+    <p class="bj-text">Ditt saldo: <strong>{{ balance }} kr</strong></p>
+    <p class="bj-text">Antal händer: <strong>{{ hands }}</strong></p>
+
+    <form action="{{ path('proj_placebet') }}" method="post" class="bj-form">
+        <label for="bet">Satsa per hand (kr):</label>
+        <input
+            type="number"
+            name="bet"
+            id="bet"
+            min="1"
+            max="{{ (balance / hands) | round(0, 'floor') }}"
+            value="{{ old_bet }}"
+            required
+        >
+        <button type="submit" class="bj-btn bj-btn--draw">Satsa och starta runda</button>
+    </form>
+
+    {{ include('flash.html.twig') }}
+</div>
+{% endblock %}

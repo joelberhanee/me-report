@@ -40,6 +40,16 @@ class Card
     // Så visas det som "10 of Hearts", precis som getAsString
     public function __toString(): string
     {
-        return $this->value . ' of ' . $this->suit;
+        // Exempel: "10 ♥" eller "K ♦"
+        $symbols = [
+            'hearts' => '♥',
+            'diamonds' => '♦',
+            'clubs' => '♣',
+            'spades' => '♠'
+        ];
+
+        $symbol = $symbols[$this->suit] ?? '';
+
+        return $this->value . ' ' . $symbol;
     }
 }

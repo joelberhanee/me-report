@@ -1,0 +1,104 @@
+{% extends 'proj_base.html.twig' %}
+
+{% block title %}Spela 21 (Blackjack){% endblock %}
+
+{% block body %}
+<div class="bj-table">
+
+    <h1 class="bj-table__title">Black Jack</h1>
+
+    <div class="bj-player-info">
+        <p><strong>Spelare:</strong> {{ player_name|e }}</p>
+        <p><strong>Saldo:</strong> {{ balance|default(0) }} kr</p>
+        <p><strong>Satsning:</strong> {{ bet|default(0) }} kr</p>
+        <p><strong>Antal händer:</strong> {{ hands|default(1) }}</p>
+    </div>
+
+    <h2 class="bj-heading">Dina händer:</h2>
+    {% for handIndex, hand in player_hands|default([]) %}
+        <section class="bj-hand bj-hand--player {% if handIndex == active_hand_index|default(0) %}active-hand{% endif %}" 
+                 id="{% if handIndex == active_hand_index|default(0) %}active-hand{% else %}hand-{{ handIndex }}{% endif %}">
+            <h3 class="bj-hand__header">Hand #{{ handIndex + 1 }}</h3>
+            <div class="bj-hand__cards">
+                {% for card in hand %}
+                    {% set suit = card.getSuit()|lower %}
+                    <div class="bj-card bj-card--{{ suit }}">
+                        {{ card }}
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="bj-hand__sum">Summa: {{ player_sums[handIndex]|default('Okänt') }}</p>
+
+            {# Kontrollknappar endast för aktiv hand och när status är 'playing' #}
+            {% if status == 'playing' and handIndex == active_hand_index|default(0) %}
+                <div class="bj-controls">
+                    <a href="{{ path('proj_draw', {'hand': handIndex}) }}" class="bj-btn bj-btn--draw" role="button"> Dra kort</a>
+                    <a href="{{ path('proj_stay', {'hand': handIndex}) }}" class="bj-btn bj-btn--stay" role="button"> Stanna</a>
+                </div>
+            {% endif %}
+        </section>
+    {% else %}
+        <p class="bj-text">Inga händer att visa.</p>
+    {% endfor %}
+
+    <h2 class="bj-heading">Banken:</h2>
+    {% if bank is not empty %}
+        <section class="bj-hand bj-hand--bank" id="bank-hand">
+            <h3 class="bj-hand__header">Bankens hand:</h3>
+            <div class="bj-hand__cards">
+                {% if showBank %}
+                    {% for card in bank %}
+                        {% set suit = card.getSuit()|lower %}
+                        <div class="bj-card bj-card--{{ suit }}">
+                            {{ card }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% set suit = bank[0].getSuit()|lower %}
+                    <div class="bj-card bj-card--{{ suit }}">
+                        {{ bank[0] }}
+                    </div>
+                    <div class="bj-card bj-card--hidden">?</div>
+                {% endif %}
+            </div>
+            {% if bank_sum is not null and showBank %}
+                <p class="bj-hand__sum">Summa: {{ bank_sum }}</p>
+            {% endif %}
+        </section>
+    {% endif %}
+
+    {% if status %}
+        <div class="bj-status" role="alert">
+            {{ status|capitalize }}
+        </div>
+    {% endif %}
+
+    {# Om ronden är över, visa knappar för ny runda och avsluta globalt #}
+    {% if status != 'playing' %}
+        <div class="bj-status">
+            <a href="{{ path('proj_bet') }}" class="bj-btn bj-btn--reset" role="button"> Ny runda</a>
+            <a href="{{ path('proj_reset') }}" class="bj-btn bj-btn--reset" role="button">Avsluta</a>
+        </div>
+    {% endif %}
+</div>
+
+{{ include('flash.html.twig') }}
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const activeHand = document.getElementById("active-hand");
+        const bankHand = document.getElementById("bank-hand");
+
+        if ("{{ status }}" === "playing") {
+            if (activeHand) {
+                activeHand.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        } else {
+            if (bankHand) {
+                bankHand.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }
+    });
+</script>
+
+{% endblock %}
