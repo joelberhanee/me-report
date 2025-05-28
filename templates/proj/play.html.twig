@@ -29,7 +29,6 @@
             </div>
             <p class="bj-hand__sum">Summa: {{ player_sums[handIndex]|default('Okänt') }}</p>
 
-            {# Kontrollknappar endast för aktiv hand och när status är 'playing' #}
             {% if status == 'playing' and handIndex == active_hand_index|default(0) %}
                 <div class="bj-controls">
                     <a href="{{ path('proj_draw', {'hand': handIndex}) }}" class="bj-btn bj-btn--draw" role="button"> Dra kort</a>
@@ -73,7 +72,6 @@
         </div>
     {% endif %}
 
-    {# Om ronden är över, visa knappar för ny runda och avsluta globalt #}
     {% if status != 'playing' %}
         <div class="bj-status">
             <a href="{{ path('proj_bet') }}" class="bj-btn bj-btn--reset" role="button"> Ny runda</a>

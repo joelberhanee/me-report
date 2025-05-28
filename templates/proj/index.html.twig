@@ -19,15 +19,17 @@
     <section>
         <h2 class="info-subtitle">Spelregler</h2>
         <ul class="info-list">
-            <li>Spelaren börjar utan kort och drar ett i taget genom att klicka på "Dra kort".</li>
-            <li>Spelaren kan välja att "Stanna" när den är nöjd med sin poängsumma.</li>
+            <li>Spelaren kan spela med 1 till 3 händer samtidigt mot banken.</li>
+            <li>Spelaren börjar utan kort och drar ett i taget genom att klicka på "Dra kort" för varje hand.</li>
+            <li>Spelaren kan välja att "Stanna" när den är nöjd med sin poängsumma för varje hand.</li>
             <li>Målet är att nå en total summa på 21 eller att vara så nära som möjligt utan att överstiga.</li>
             <li>Ett ess/A är värt 1 eller 11 beroende på situation.</li>
-            <li>Om spelarens summa överstiger 21, förlorar den direkt.</li>
+            <li>Om spelarens summa för en hand överstiger 21, förlorar den handen direkt.</li>
             <li>När spelaren stannar, drar banken kort tills den når minst 17.</li>
-            <li>Om banken överstiger 21 vinner spelaren.</li>
-            <li>Vid lika poängsumma vinner banken.</li>
-        </ul>
+            <li>Om banken överstiger 21 vinner spelaren alla sina händer som inte har överstigit 21.</li>
+            <li>Vid lika poängsumma på både spelarens hand och bankens hand, vinner banken.</li>
+            <li>Spelaren kan satsa separat på varje hand, och varje hand spelas som en separat runda mot banken.</li>
+        </ul>        
     </section>
 
     {{ include('flash.html.twig') }}
