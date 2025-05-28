@@ -12,13 +12,13 @@ Detta är ett Symfony-projekt som använder MVC-struktur för att bygga en webba
 
 ## Om projektet
 
-Detta är ett Symfony-baserat webbprojekt som följer MVC-arkitekturen. Applikationen innehåller både traditionella sidor och ett JSON-API, samt ett kortspel (Blackjack). Projektet är en del av kursen Webbutveckling.
+Detta är ett Symfony-baserat webbprojekt. Applikationen innehåller både traditionella sidor och ett JSON-API, samt ett kortspel (Blackjack). Projektet är en del av kursen Objektorienterade webbteknologier.
 
 Projektet innehåller bland annat:
 
 - Formulärhantering och sessionshantering
 - Ett Blackjack-spel där spelaren kan spela 1–3 händer samtidigt
-- En API-sektion med POST/GET-routes
+- En API-del med POST/GET-routes
 - Täckningstester med PHPUnit
 - Dokumentation och kodkvalitetsgranskning med Scrutinizer, PHPDoc och PhpMetrics
 
@@ -46,3 +46,4 @@ För att komma igång med projektet, följ dessa steg:
 - php -S localhost:8000 -t public
 
 7. https://127.0.0.1:8000/
+
