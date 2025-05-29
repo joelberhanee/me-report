@@ -215,7 +215,7 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 13,
+        "numberOfUnitTests": 16,
         "violations": {}
     },
     {
@@ -306,7 +306,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 5,
+        "numberOfUnitTests": 10,
         "violations": {}
     },
     {
@@ -499,7 +499,7 @@ var classes = [
         "afferentCoupling": 4,
         "efferentCoupling": 1,
         "instability": 0.2,
-        "numberOfUnitTests": 9,
+        "numberOfUnitTests": 11,
         "violations": {}
     },
     {
@@ -1085,8 +1085,8 @@ var classes = [
             {
                 "name": "bankPlay",
                 "role": null,
-                "public": false,
-                "private": true,
+                "public": true,
+                "private": false,
                 "_type": "Hal\\Metric\\FunctionMetric"
             },
             {
@@ -1106,8 +1106,8 @@ var classes = [
         ],
         "nbMethodsIncludingGettersSetters": 8,
         "nbMethods": 8,
-        "nbMethodsPrivate": 4,
-        "nbMethodsPublic": 4,
+        "nbMethodsPrivate": 3,
+        "nbMethodsPublic": 5,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
         "wmc": 28,
@@ -1161,7 +1161,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 3,
         "instability": 0.6,
-        "numberOfUnitTests": 9,
+        "numberOfUnitTests": 10,
         "violations": {}
     },
     {

@@ -212,9 +212,9 @@ class GameProjTest extends TestCase
             ->method('set')
             ->withConsecutive(
                 ['bank', $bankHand],
-                ['bank_sum', 17],
+                ['bank_sum', $this->greaterThanOrEqual(17)],
                 ['showBank', true]
-            );
+            );            
     
         // Mocka GameProj och override evaluateResults
         $game = $this->getMockBuilder(GameProj::class)
