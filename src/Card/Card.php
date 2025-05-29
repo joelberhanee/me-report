@@ -19,9 +19,20 @@ class Card
     }
 
     // Denna funktionen ger tillbaka kortets värde (t.ex. "Q")
-    public function getValue(): string
+    public function getValue()
     {
-        return $this->value;
+        // Om kortet är en bild (K, Q, J), ge det värdet 10
+        if (in_array($this->value, ['J', 'Q', 'K'])) {
+            return 10;
+        }
+
+        // Om kortet är ett ess (A), returnera ess
+        if ($this->value === 'A') {
+            return 'A';
+        }
+
+        // Annars returnera det numeriska värdet av kortet
+        return (int)$this->value;
     }
 
     // Funktionen ger tillbaka kortets färg (t.ex. "Diamonds")

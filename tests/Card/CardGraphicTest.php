@@ -2,53 +2,50 @@
 
 namespace App\Tests\Card;
 
-use PHPUnit\Framework\TestCase;
 use App\Card\CardGraphic;
+use PHPUnit\Framework\TestCase;
 
-/**
- * Testar klassen CardGraphic.
- */
 class CardGraphicTest extends TestCase
 {
-    /**
-     * Testar att ett kort kan skapas och att värde och färg hämtas rätt.
-     */
-    public function testCreateCardGraphic(): void
+    public function testGetClassRed()
     {
-        $card = new CardGraphic('K', 'hearts');
+        $card = new CardGraphic('A', 'hearts');
+        $this->assertEquals('red', $card->getClass());
 
-        $this->assertInstanceOf(CardGraphic::class, $card);
-        $this->assertEquals('K', $card->getValue());
-        $this->assertEquals('hearts', $card->getSuit());
+        $card2 = new CardGraphic('10', 'diamonds');
+        $this->assertEquals('red', $card2->getClass());
     }
 
-    /**
-     * Testar att rätt färgklass returneras.
-     */
-    public function testGetClass(): void
-    {
-        $redCard = new CardGraphic('Q', 'diamonds');
-        $blackCard = new CardGraphic('2', 'clubs');
-
-        $this->assertEquals('red', $redCard->getClass());
-        $this->assertEquals('black', $blackCard->getClass());
-    }
-
-    /**
-     * Testar att rätt symboler visas.
-     */
-    public function testGetGraphic(): void
+    public function testGetClassBlack()
     {
         $card = new CardGraphic('A', 'spades');
-        $this->assertEquals('[A♠]', $card->getGraphic());
+        $this->assertEquals('black', $card->getClass());
+
+        $card2 = new CardGraphic('K', 'clubs');
+        $this->assertEquals('black', $card2->getClass());
     }
 
-    /**
-     * Testar att __toString returnerar samma som getGraphic.
-     */
-    public function testToString(): void
+    public function testGetGraphic()
     {
-        $card = new CardGraphic('7', 'clubs');
-        $this->assertEquals('[7♣]', (string) $card);
+        $card = new CardGraphic('A', 'hearts');
+        $this->assertEquals('[A♥]', $card->getGraphic());
+
+        $card2 = new CardGraphic('10', 'spades');
+        $this->assertEquals('[10♠]', $card2->getGraphic());
+
+        $card3 = new CardGraphic('K', 'diamonds');
+        $this->assertEquals('[K♦]', $card3->getGraphic());
+    }
+
+    public function testToString()
+    {
+        $card = new CardGraphic('A', 'hearts');
+        $this->assertEquals('[A♥]', (string)$card);
+
+        $card2 = new CardGraphic('10', 'clubs');
+        $this->assertEquals('[10♣]', (string)$card2);
+
+        $card3 = new CardGraphic('K', 'diamonds');
+        $this->assertEquals('[K♦]', (string)$card3);
     }
 }

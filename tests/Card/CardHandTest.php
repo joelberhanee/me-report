@@ -60,4 +60,14 @@ class CardHandTest extends TestCase
 
         $this->assertEquals(20, $hand->getSum());
     }
+
+    public function testGetSumWithMultipleAces(): void
+    {
+        $hand = new CardHand();
+        $hand->addCard(new Card('A', 'hearts'));
+        $hand->addCard(new Card('A', 'spades'));
+        $hand->addCard(new Card('9', 'clubs'));
+
+        $this->assertEquals(21, $hand->getSum());
+    }
 }

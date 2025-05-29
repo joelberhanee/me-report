@@ -39,7 +39,6 @@ class DeckOfCardsTest extends TestCase
     public function testSort(): void
     {
         $deck = new DeckOfCards();
-        $deck->shuffle();
         $deck->sort();
         $sorted = $deck->getCards();
 

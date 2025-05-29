@@ -180,6 +180,13 @@
 <dd>Dra ett kort till den aktiva handen.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/App-Game-GameProj.html#method_evaluateResults">evaluateResults()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Utvärderar slutresultatet efter bankens tur.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Game-GameProj.html#method_start">start()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -220,13 +227,6 @@
                                 &nbsp;: void    </span>
 </dt>
 <dd>Hjälpmetod för att dra ett antal kort från leken till en given hand.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a class="" href="classes/App-Game-GameProj.html#method_evaluateResults">evaluateResults()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Utvärderar slutresultatet efter bankens tur.</dd>
 
     </dl>
 
@@ -297,6 +297,53 @@ Kontrollerar om handen har &quot;bustat&quot; (över 21).</p>
 
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_evaluateResults">
+        evaluateResults()
+        <a href="classes/App-Game-GameProj.html#method_evaluateResults" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Game/GameProj.php"><a href="files/src-game-gameproj.html"><abbr title="src/Game/GameProj.php">GameProj.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">208</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Utvärderar slutresultatet efter bankens tur.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">evaluateResults</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Jämför spelarhänder med banken och uppdaterar poängställning och spelarens saldo.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -625,53 +672,6 @@ Uppdaterar sessionen och utvärderar slutresultatet.</p>
 
     
 </article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_evaluateResults">
-        evaluateResults()
-        <a href="classes/App-Game-GameProj.html#method_evaluateResults" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Game/GameProj.php"><a href="files/src-game-gameproj.html"><abbr title="src/Game/GameProj.php">GameProj.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">208</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Utvärderar slutresultatet efter bankens tur.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">evaluateResults</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>Jämför spelarhänder med banken och uppdaterar poängställning och spelarens saldo.</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-
-    
-</article>
             </section>
 
         <div class="phpdocumentor-modal" id="source-view">
@@ -786,13 +786,13 @@ Uppdaterar sessionen och utvärderar slutresultatet.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_draw">draw()</a></li>
+                                            <li class=""><a href="classes/App-Game-GameProj.html#method_evaluateResults">evaluateResults()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_start">start()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_stay">stay()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_advanceHand">advanceHand()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_bankPlay">bankPlay()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_calculateHandSum">calculateHandSum()</a></li>
                                             <li class=""><a href="classes/App-Game-GameProj.html#method_drawCardsToHand">drawCardsToHand()</a></li>
-                                            <li class=""><a href="classes/App-Game-GameProj.html#method_evaluateResults">evaluateResults()</a></li>
                                     </ul>
             </li>
                     </ul>

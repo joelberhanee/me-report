@@ -113,7 +113,7 @@ class GameProj
 
             return $message;
         }
-
+        
         return "";
     }
 
@@ -158,7 +158,7 @@ class GameProj
      *
      * @param SessionInterface $session
      */
-    private function bankPlay(SessionInterface $session): void
+    public function bankPlay(SessionInterface $session): void
     {
         $deck = $session->get('deck');
         $bank = $session->get('bank');
@@ -205,7 +205,7 @@ class GameProj
      *
      * @param SessionInterface $session
      */
-    private function evaluateResults(SessionInterface $session): void
+    public function evaluateResults(SessionInterface $session): void
     {
         $playerHands = $session->get('player_hands', []);
         $bankSum = $session->get('bank_sum', 0);
