@@ -19,7 +19,7 @@ class ProjApiController extends AbstractController
         return $this->render('proj_api.html.twig');
     }
 
-    // Visar huvudsidan med formdata från sessionen
+    // Visar huvudsidan med data från sessionen
     #[Route('/proj', name: 'proj_index', methods: ['GET'])]
     public function index(Request $request): Response
     {

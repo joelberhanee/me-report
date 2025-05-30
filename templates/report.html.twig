@@ -132,7 +132,33 @@
     
     <div id="kmom7-10">
         <h2>Kmom 7/10</h2>
-        <p>Redovisningstext för kmom7/10.</p>
-    </div>
+        <p>För att klara de grundläggande kraven så byggde jag en separat webbplats som ligger under <code>/Proj</code>. Jag la till den som en egen flik i min navigation, bara på min reports-sida. Den här delen handlar om mitt projekt och ett blackjack-spel där man spelar mot banken. Jag skapade en ny design med nya färger, typsnitt och överlag utseendet för webbplatsen. Målet var att ge en spelkänsla av sidan. Jag skapade även en egen meny och navbar med länkar för de som var en del av projektet. Man hade möjlighet att ta sig till <em>about</em>-sidan som gav en liten presentation om projektet, <em>API</em>-sidan som med knappar visade spelet i JSON-format samt länk tillbaka till ursprungliga report-sidan för kursen.</p>
+    
+        <p>I detta projekt har jag valt att bygga vidare på samma struktur som jag hade tidigare i spelet 21, en tidigare uppgift, så jag fick möjligheten att återanvända idéer. Men det blev mycket svårare projekt nu när jag exempelvis ville kunna spela flera händer samtidigt. Det krävde att jag fick ändra ganska mycket i hur jag hanterade spelrundor samt sessioner. Så jag tycker att det blev utmanande att få allt att fungera och hålla kontrollen. För att förbättra användarupplevelsen så använder jag bland annat JavaScript-kod som jag hittade via MDN. <code>DOMContentLoaded</code>-eventet använder jag tillsammans med en funktion som gör att man automatiskt scrollar ner till den aktiva spelhanden. På så sätt blev det enklare att följa med i spelet, framförallt med flera händer i en omgång.</p>
+    
+        <p>Min <code>README.md</code>-fil har också blivit uppdaterad så att man tydligt förstår vad projektet innehåller och gör, hur man klonar det samt startar det. Jag lade även till Scrutinizer-badges som är klickbara för att visa status på tester, kodkvalitet och kodtäckning.</p>
+    
+        <p>Jag har även uppdaterat och gått igenom dokumentationen i <code>docs/</code> så att den stämmer. Jag tog hjälp av Scrutinizer, PHPUnit som i tidigare uppgifter samt Xdebug för att få upp kodtäckningen så högt som möjligt. Sedan använde jag phpDocumentor för att dokumentera alla klasser och metoder, och phpmetrics för att se kodens komplexitet.</p>
+    
+        <h3>Krav 4: JSON API</h3>
+        <p>Ett av de optionella kraven var att bygga ett JSON API som skulle finnas under <code>/proj/api</code>. Jag gjorde sex olika endpoints där 2 av 3 använde POST. Man har till exempel möjligheten att spara spelare, starta nytt spel, dra kort, stanna samt återställa spelet. Jag skapade även knappar för att kunna skicka anrop till API:t så att man kan se det direkt i webbläsaren. Sedan ser man allt i JSON-format. Även här tog jag inspiration av min tidigare <code>ApiController</code> från uppgifterna och återanvände mina koder för spelet med lite justeringar för att få det att fungera.</p>
+    
+        <h3>Allmänt om projektet</h3>
+        <p>Jag tycker att projektet har varit utmanande men också roligt. Jag hade en bra grund att bygga vidare på med mina tidigare uppgifter, men det var mer komplicerat än vad jag trodde och det tog mer tid än vad jag förväntat mig. Hantering av flera händer samtidigt var mer utmanande än vad jag hade trott, speciellt när det handlade om att spara rätt data men också att ha koll på vilken hand som var aktiv.</p>
+    
+        <p>Min kod blev lite komplex, och därför var det också jobbigare i detta projekt att skriva enhetstester – särskilt för funktionerna som använde <code>SessionInterface</code>. Jag blev däremot mycket bättre och drog en del lärdom om hur man mockar sessionen med PHPUnit. Jag fick sitta och söka efter lösningar på nätet och hamnade till slut i GitHub-forum som hade massa bra tips. Denna kod blev en nyckel i mina tester för spelet:</p>
+    
+        <pre><code>/** @var \PHPUnit\Framework\MockObject\MockObject&amp;\Symfony\Component\HttpFoundation\Session\SessionInterface $session */
+    $session = $this-&gt;createMock(SessionInterface::class);</code></pre>
+    
+        <p>Jag fick till exempel lära mig hur jag skulle använda det med <code>expects</code>, <code>willReturnCallback</code> och <code>withConsecutive</code> för att testa spelets hantering av olika situationer. En testklass som jag hade lite problem med var den som skulle kontrollera att banken drar kort tills den når 17. Då var det viktigt att rätt info sparades i sessionen samt att förlust eller vinst blev korrekt. Jag fick hålla på länge men lärde mig en hel del nytt. Det tyckte jag dock var utmanande.</p>
+    
+        <p>Min kod blev mer avancerad än vad jag hade förväntat mig från början, och därför blev det viktigt för mig att kommentera för att ha koll på allting. Kommentarerna var till stor hjälp, framför allt när jag kom tillbaka till koden efter någon dag. Ett stort plus till mig själv som var konsekvent med att kommentera – det har jag varit sämre på tidigare.</p>
+    
+        <p>Projektet krävde flera sena nätter för att bli klart. Det var ganska mycket jobb, men också väldigt lärorikt. Jag känner att jag verkligen har fått bättre koll på mycket.</p>
+    
+        <h3>Reflektion om kursen</h3>
+        <p>Jag anser att kursen har varit tydlig och intressant. Det har varit bra att få jobba med ett större projekt där man får sätta ihop allt man lärt sig – från routes och templates till API, sessioner och tester. Men även användning av massa PHP-hjälpverktyg. Handledningen har varit bra, främst när man fastnat och behövt hjälp i Discord. Jag kommer absolut att rekommendera kursen till andra, jag ger denna kurs en 7:a.</p>
+    </div>    
 
 {% endblock %}
